@@ -44,7 +44,7 @@ header{background:#fff;border-bottom:2px solid #111;padding:0 20px;position:stic
 /* IMAGE SLIDER */
 .slider-wrap{position:relative;width:100%;background:#f9f9f9;overflow:hidden;}
 .slides{display:flex;transition:transform .35s cubic-bezier(.4,0,.2,1);}
-.slide{min-width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#f3f0ff;font-size:90px;overflow:hidden;flex-shrink:0;}
+.slide{min-width:100%;height:450px;display:flex;align-items:center;justify-content:center;background:#f3f0ff;font-size:90px;overflow:hidden;flex-shrink:0;}
 .slide img{width:100%;height:100%;object-fit:cover;}
 .slide-emoji{font-size:90px;}
 .slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#111;color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;opacity:.85;transition:opacity .2s;}
@@ -55,9 +55,10 @@ header{background:#fff;border-bottom:2px solid #111;padding:0 20px;position:stic
 .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);border:1.5px solid #111;cursor:pointer;transition:all .2s;}
 .dot.active{background:#111;width:18px;border-radius:4px;}
 .thumb-row{display:flex;gap:8px;padding:10px 12px;background:#fafafa;border-top:1.5px solid var(--border);overflow-x:auto;}
-.thumb{width:60px;height:60px;border-radius:8px;border:2px solid var(--border);overflow:hidden;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#f3f0ff;font-size:28px;transition:border-color .2s;}
+.thumb{width:75px;height:75px;border-radius:8px;border:2px solid var(--border);overflow:hidden;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#f3f0ff;font-size:28px;transition:border-color .2s;}
 .thumb img{width:100%;height:100%;object-fit:cover;}
-.thumb.active{border-color:#111;box-shadow:2px 2px 0 #111;}
+.thumb:hover{transform:scale(1.05);}
+.thumb.active{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.25);transform:scale(1.05);}
 
 /* BADGE */
 .badge-top{position:absolute;top:12px;right:12px;background:var(--gold);color:#000;font-size:11px;font-weight:800;padding:4px 12px;border-radius:100px;border:1.5px solid #111;box-shadow:2px 2px 0 #111;}
@@ -231,7 +232,7 @@ footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bo
 </header>
 
 <div class="page">
-  <div id="productHero"></div>
+  <div id="productsList"></div><div id="productHero"></div>
 
   <div class="trust-row">
     <div class="trust-item"><div class="trust-icon">🚚</div><div class="trust-txt">توصيل سريع لباب بيتك</div></div>
@@ -464,6 +465,9 @@ function load(){
 // SLIDER
 // ═══════════════════════════════════════════
 function buildSlider(images, emoji){
+  images = (images || []).filter(img =>
+    img && typeof img === "string"
+  );
   if(!images || images.length === 0){
     return `<div class="slider-wrap">
       <div class="slide" style="aspect-ratio:4/3"><span class="slide-emoji">${emoji||'📦'}</span></div>
@@ -496,7 +500,7 @@ function goSlide(i){
   if(!track) return;
   const total = track.children.length;
   slideIdx = (i + total) % total;
-  track.style.transform = `translateX(${slideIdx * 100}%)`;
+  track.style.transform = `translateX(-${slideIdx * 100}%)`;
   document.querySelectorAll('.dot').forEach((d,idx)=>d.classList.toggle('active', idx===slideIdx));
   document.querySelectorAll('.thumb').forEach((t,idx)=>t.classList.toggle('active', idx===slideIdx));
 }
@@ -517,6 +521,10 @@ function renderProduct(){
     updateSummary(null); return;
   }
   const p = store.products[0];
+  const list=document.getElementById('productsList');
+  if(list){
+    list.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:15px 0;">'+store.products.map(pp=>`<div onclick="showProduct('${pp.id}')" style="background:#fff;border:2px solid #111;border-radius:12px;padding:10px;cursor:pointer"><div style="font-weight:800">${pp.name}</div><div style="color:#7c3aed">${pp.price} دج</div></div>`).join('')+'</div>';
+  }
   curProd = p;
   selColor = p.colors&&p.colors.length ? p.colors[0] : null;
   slideIdx = 0;
@@ -575,6 +583,32 @@ function getDelivery(wilayaName){
   return w ? w.del : 500;
 }
 
+
+function showProduct(id){
+  const p=store.products.find(x=>String(x.id)===String(id));
+  if(!p) return;
+  curProd=p;
+  selColor=p.colors&&p.colors.length?p.colors[0]:null;
+  slideIdx=0;
+
+  const hero=document.getElementById('productHero');
+  hero.innerHTML=`
+    <div class="product-hero">
+      <div class="product-images" style="position:relative">
+        ${buildSlider(p.images,p.emoji)}
+        ${p.badge?`<div class="badge-top">${p.badge}</div>`:''}
+      </div>
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="price-row">
+          <span class="price-main">${p.price} <span class="price-unit">دج</span></span>
+        </div>
+        ${p.desc?`<p class="product-desc">${p.desc}</p>`:''}
+      </div>
+    </div>`;
+  updateSummary(p);
+  goSlide(0);
+}
 // ═══════════════════════════════════════════
 // WILAYAS / COMMUNES
 // ═══════════════════════════════════════════
@@ -761,23 +795,31 @@ function buildImgSlots(){
   grid.innerHTML = productImages.map((_,i)=>`
     <div class="img-slot" id="slot_${i}" onclick="document.getElementById('imgInput_${i}').click()">
       <span>📷</span>
-      <input type="file" id="imgInput_${i}" accept="image/*" onchange="slotChange(this,${i})">
+      <input type="file" id="imgInput_${i}" accept="image/*" multiple onchange="slotChange(this,${i})">
       <button class="del-img" onclick="clearSlot(event,${i})">✕</button>
     </div>`).join('');
 }
 
 function slotChange(inp, i){
-  const f = inp.files[0]; if(!f) return;
-  const r = new FileReader();
-  r.onload = e=>{
-    productImages[i] = e.target.result;
-    const slot = document.getElementById('slot_'+i);
-    let img = slot.querySelector('img');
-    if(!img){ img=document.createElement('img'); slot.appendChild(img); }
-    img.src = e.target.result;
-    slot.querySelector('span').style.display='none';
-  };
-  r.readAsDataURL(f);
+  const files = Array.from(inp.files || []);
+  if(!files.length) return;
+
+  files.forEach((f, offset)=>{
+    const target = i + offset;
+    if(target > 4) return;
+
+    const r = new FileReader();
+    r.onload = e=>{
+      productImages[target] = e.target.result;
+      const slot = document.getElementById('slot_'+target);
+      let img = slot.querySelector('img');
+      if(!img){ img=document.createElement('img'); slot.appendChild(img); }
+      img.src = e.target.result;
+      const sp = slot.querySelector('span');
+      if(sp) sp.style.display='none';
+    };
+    r.readAsDataURL(f);
+  });
 }
 
 function clearSlot(ev, i){
@@ -809,7 +851,7 @@ function saveProduct(){
   const price = document.getElementById('aPrice').value;
   if(!name||!price){ alert('اسم المنتج والسعر مطلوبان'); return; }
   const featsRaw = document.getElementById('aFeats').value.trim();
-  const imgs = productImages.filter(Boolean);
+  const imgs = [...new Set(productImages.filter(Boolean))];
   const p = {
     id:'P'+Date.now(), name,
     desc: document.getElementById('aDesc').value.trim(),
@@ -894,5 +936,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   load(); fillWilayas(); renderProduct();
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>
