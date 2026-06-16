@@ -810,14 +810,15 @@ function slotChange(inp, i){
   const files = Array.from(inp.files || []);
   if(!files.length) return;
 
-  files.forEach((f, offset)=>{
-    const target = i + offset;
-    if(target > 4) return;
+  let pos = i;
+  files.forEach((f)=>{
+    while(pos < 5 && productImages[pos]) pos++;
+    if(pos >= 5) return;
 
     const r = new FileReader();
     r.onload = e=>{
-      productImages[target] = e.target.result;
-      const slot = document.getElementById('slot_'+target);
+      productImages[pos] = e.target.result;
+      const slot = document.getElementById('slot_'+pos);
       let img = slot.querySelector('img');
       if(!img){ img=document.createElement('img'); slot.appendChild(img); }
       img.src = e.target.result;
@@ -825,6 +826,7 @@ function slotChange(inp, i){
       if(sp) sp.style.display='none';
     };
     r.readAsDataURL(f);
+    pos++;
   });
 }
 
@@ -945,3 +947,29 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </body>
 </html>
+
+<script>
+async function loadProductsFromSupabase(){
+ try{
+ const r=await fetch(SUPABASE_URL+'/rest/v1/products?select=*', {headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});
+ const data=await r.json();
+ if(Array.isArray(data)&&data.length){
+   store.products=data.map(x=>({id:x.id,name:x.name,desc:x.description,price:x.price,oldPrice:x.old_price||0,badge:x.badge||'',emoji:x.emoji||'📦',images:x.images||[],colors:x.colors||[],feats:x.features||[]}));
+   renderProduct();
+ }
+ }catch(e){console.log(e)}
+}
+const _oldSaveProduct=window.saveProduct;
+window.saveProduct=async function(){
+ const name=document.getElementById('aName').value.trim();
+ const price=Number(document.getElementById('aPrice').value||0);
+ if(!name||!price){alert('اسم المنتج والسعر مطلوبان');return;}
+ const p={name:name,description:document.getElementById('aDesc').value.trim(),price:price,old_price:Number(document.getElementById('aOldPrice').value)||0,badge:document.getElementById('aBadge').value.trim(),emoji:document.getElementById('aEmoji').value||'📦',images:[...new Set(productImages.filter(Boolean))],colors:getColors(),features:(document.getElementById('aFeats').value.trim()?document.getElementById('aFeats').value.trim().split('\n').filter(Boolean):[])};
+ try{
+ await fetch(SUPABASE_URL+'/rest/v1/products',{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,Prefer:'return=representation'},body:JSON.stringify(p)});
+ alert('تم الحفظ في Supabase');
+ loadProductsFromSupabase();
+ }catch(e){alert('خطأ '+e.message)}
+}
+document.addEventListener('DOMContentLoaded',()=>setTimeout(loadProductsFromSupabase,1000));
+</script>
