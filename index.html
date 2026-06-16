@@ -41,27 +41,13 @@ header{background:#fff;border-bottom:2px solid #111;padding:0 20px;position:stic
 /* PRODUCT HERO */
 .product-hero{background:#fff;border:2px solid #111;border-radius:16px;overflow:hidden;margin:18px 0 14px;box-shadow:4px 4px 0 #111;}
 
-/* IMAGE SLIDER */
-.slider-wrap{position:relative;width:100%;background:#f9f9f9;overflow:hidden;}
-.slides{display:flex;transition:transform .35s cubic-bezier(.4,0,.2,1);}
-.slide{min-width:100%;height:450px;display:flex;align-items:center;justify-content:center;background:#f3f0ff;font-size:90px;overflow:hidden;flex-shrink:0;}
-.slide img{width:100%;height:100%;object-fit:cover;}
-.slide-emoji{font-size:90px;}
-.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#111;color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;opacity:.85;transition:opacity .2s;}
-.slider-btn:hover{opacity:1;}
-.slider-prev{left:10px;}
-.slider-next{right:10px;}
-.slider-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;}
-.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);border:1.5px solid #111;cursor:pointer;transition:all .2s;}
-.dot.active{background:#111;width:18px;border-radius:4px;}
-.thumb-row{display:flex;gap:8px;padding:10px 12px;background:#fafafa;border-top:1.5px solid var(--border);overflow-x:auto;}
-.thumb{width:75px;height:75px;border-radius:8px;border:2px solid var(--border);overflow:hidden;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#f3f0ff;font-size:28px;transition:border-color .2s;}
-.thumb img{width:100%;height:100%;object-fit:cover;}
-.thumb:hover{transform:scale(1.05);}
-.thumb.active{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.25);transform:scale(1.05);}
+/* SINGLE IMAGE CONTAINER */
+.single-img-wrap{position:relative;width:100%;background:#f9f9f9;height:450px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1.5px solid var(--border);}
+.single-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.single-img-wrap .slide-emoji{font-size:90px;}
 
 /* BADGE */
-.badge-top{position:absolute;top:12px;right:12px;background:var(--gold);color:#000;font-size:11px;font-weight:800;padding:4px 12px;border-radius:100px;border:1.5px solid #111;box-shadow:2px 2px 0 #111;}
+.badge-top{position:absolute;top:12px;right:12px;background:var(--gold);color:#000;font-size:11px;font-weight:800;padding:4px 12px;border-radius:100px;border:1.5px solid #111;box-shadow:2px 2px 0 #111;z-index:5;}
 
 /* PRODUCT BODY */
 .product-body{padding:18px 18px 20px;}
@@ -170,10 +156,10 @@ footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bo
 
 /* ADD FORM */
 .form-add{background:#f9f9f9;border:2px solid #111;border-radius:12px;padding:16px;}
-.img-drop{width:100%;aspect-ratio:16/9;border:2px dashed #111;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:7px;color:var(--muted);font-size:13px;font-weight:600;transition:all .2s;overflow:hidden;position:relative;margin-bottom:13px;background:#fff;}
-.img-drop:hover{border-style:solid;background:#f3f0ff;}
-.img-drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.img-drop input{display:none;}
+.img-single-drop{width:100%;height:200px;border:2px dashed #111;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:7px;color:var(--muted);font-size:13px;font-weight:600;transition:all .2s;overflow:hidden;position:relative;margin-bottom:13px;background:#fff;}
+.img-single-drop:hover{border-style:solid;background:#f3f0ff;}
+.img-single-drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.img-single-drop input{display:none;}
 .color-in{display:flex;flex-direction:column;gap:7px;}
 .ci-row{display:flex;gap:7px;align-items:center;}
 .cpick{width:36px;height:36px;border-radius:7px;border:2px solid #111;cursor:pointer;padding:2px;background:#fff;}
@@ -195,27 +181,16 @@ footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bo
 .btn-save:hover{background:var(--p);box-shadow:3px 3px 0 #111;}
 .saved-msg{color:var(--green);font-size:13px;text-align:center;margin-top:10px;display:none;font-weight:700;}
 
-/* IMG UPLOAD MULTI */
-.imgs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:13px;}
-.img-slot{aspect-ratio:1;border:2px dashed #ccc;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;background:#fff;font-size:22px;transition:border-color .2s;}
-.img-slot:hover{border-color:#111;}
-.img-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.img-slot input{display:none;}
-.img-slot .del-img{position:absolute;top:3px;left:3px;background:#111;color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;display:none;align-items:center;justify-content:center;font-weight:700;}
-.img-slot:hover .del-img{display:flex;}
-
 /* SPINNER */
 .spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 
-/* HELP NOTE */
 .help-note{background:#f0fdf4;border:2px solid var(--green);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--green);font-weight:600;margin-bottom:14px;line-height:1.7;}
 
 @media(max-width:500px){
   .form-row{grid-template-columns:1fr;}
   .feats{grid-template-columns:1fr 1fr;}
   .trust-row{grid-template-columns:repeat(3,1fr);}
-  .imgs-grid{grid-template-columns:repeat(3,1fr);}
 }
 </style>
 </head>
@@ -232,7 +207,11 @@ footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bo
 </header>
 
 <div class="page">
-  <div id="productsList"></div><div id="productHero"></div>
+  <!-- قائمة المنتجات السريعة -->
+  <div id="productsList"></div>
+  
+  <!-- تفاصيل المنتج المعروض حالياً -->
+  <div id="productHero"></div>
 
   <div class="trust-row">
     <div class="trust-item"><div class="trust-icon">🚚</div><div class="trust-txt">توصيل سريع لباب بيتك</div></div>
@@ -278,7 +257,7 @@ footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bo
 
 <footer>
   <span class="f-logo">AM Store</span>
-  جميع الحقوق محفوظة © 2025 — توصيل لجميع ولايات الجزائر
+  جميع الحقوق محفوظة © 2026 — توصيل لجميع ولايات الجزائر
 </footer>
 
 <!-- ADMIN LOGIN -->
@@ -311,19 +290,22 @@ footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bo
 
       <div class="tcontent" id="tAdd">
         <div class="form-add">
-          <div class="form-label" style="margin-bottom:9px">📷 صور المنتج (حتى 5 صور)</div>
-          <div class="imgs-grid" id="imgsGrid"></div>
-          <div class="form-group"><div class="form-label">اسم المنتج *</div><input class="form-control" id="aName" placeholder="مثال: حذاء Nike Air"></div>
+          <div class="form-label" style="margin-bottom:9px">📷 صورة المنتج الرئيسية</div>
+          <div class="img-single-drop" id="singleImgDrop" onclick="document.getElementById('singleImgInput').click()">
+            <span id="dropPrompt">点击 أو اسحب صورة هنا 📷</span>
+            <input type="file" id="singleImgInput" accept="image/*" onchange="handleSingleImgUpload(this)">
+          </div>
+          <div class="form-group"><div class="form-label">اسم المنتج *</div><input class="form-control" id="aName" placeholder="مثال: ساعة فاخرة"></div>
           <div class="form-group"><div class="form-label">وصف المنتج</div><textarea class="form-control" id="aDesc" rows="3" placeholder="وصف مختصر..."></textarea></div>
           <div class="form-row">
             <div class="form-group"><div class="form-label">السعر (دج) *</div><input class="form-control" id="aPrice" type="number" placeholder="0"></div>
             <div class="form-group"><div class="form-label">سعر قديم (دج)</div><input class="form-control" id="aOldPrice" type="number" placeholder="0"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><div class="form-label">إيموجي</div><input class="form-control" id="aEmoji" placeholder="👟" maxlength="4"></div>
+            <div class="form-group"><div class="form-label">إيموجي</div><input class="form-control" id="aEmoji" placeholder="⌚" maxlength="4"></div>
             <div class="form-group"><div class="form-label">شارة</div><input class="form-control" id="aBadge" placeholder="الأكثر مبيعاً"></div>
           </div>
-          <div class="form-group"><div class="form-label">المميزات (سطر لكل ميزة)</div><textarea class="form-control" id="aFeats" rows="4" placeholder="توصيل سريع&#10;ضمان الجودة&#10;سهل الاستخدام&#10;ألوان متعددة"></textarea></div>
+          <div class="form-group"><div class="form-label">المميزات (سطر لكل ميزة)</div><textarea class="form-control" id="aFeats" rows="4" placeholder="توصيل سريع&#10;ضمان الجودة&#10;مقاومة للماء"></textarea></div>
           <div class="form-group">
             <div class="form-label">الألوان المتاحة</div>
             <div class="color-in" id="colorIn">
@@ -382,13 +364,10 @@ footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bo
   </div>
 </div>
 
-
 <script>
 const SUPABASE_URL="https://vbjetwvykqsztklceshr.supabase.co";
 const SUPABASE_KEY="sb_publishable_Hr7HAcc9XZPS45FYOrbtLA_WWjIMQtk";
-</script>
 
-<script>
 // ═══════════════════════════════════════════
 // STORE STATE
 // ═══════════════════════════════════════════
@@ -398,69 +377,12 @@ let store = {
   settings: { tgToken:'', tgChat:'', password:'admin123' }
 };
 let curProd = null, selColor = null, editId = null;
-let slideIdx = 0;
+let singleProductImage = null; 
 
-// ═══════════════════════════════════════════
-// WILAYAS — كل ولاية مع سعر التوصيل والبلديات
-// ═══════════════════════════════════════════
 const WILAYAS = [
-  {c:'01',n:'أدرار',del:1200,communes:['أدرار','رقان','تيمياوين','أولف','بوداء','تيت','شروين','فنوغيل','أقبلي','تيميمون','زاوية كنتة','متارفة','إن زغمير','أولاد سعيد','دلدول','تسابيت','أوقروت','سالي']},
-  {c:'02',n:'الشلف',del:700,communes:['الشلف','تنس','بني حواء','الكريمية','واد فضة','بني بوعتاب','الحرشون','أبو الحسن','الحجاج','بريرة','عين مران','لبصة','المرسى','سيدي عكاشة','بوزغاية','أولاد فارس','أولاد عباس','الصبحة','تاجنة','بوقدير','العطاف','ذهبي','بني رشد']},
-  {c:'03',n:'الأغواط',del:900,communes:['الأغواط','قصر الحيران','حاسي الرمل','عين ماضي','قلتة سيدي سعد','السبقاق','سيدي بوزيد','تاجموت','تاجرونة','الحويطة','بن ناصر بن شهرة','أفلو','حاسي الدلاعة','برج الخيص','عمور','غيلازة']},
-  {c:'04',n:'أم البواقي',del:750,communes:['أم البواقي','عين البيضاء','عين مليلة','سيقوس','عين فكرون','عين الديس','عين السلام','فكيرينة','عين قشرة','سوق نعمان','عين دشرة','مسكيانة','الرحية','وادي نيني','الجازية','حمام الصالحين','جلال','كيمل','ذاود']},
-  {c:'05',n:'باتنة',del:750,communes:['باتنة','عين التوتة','مروانة','أريس','بريكة','سريانة','منعة','تيمقاد','بني فضالة','الجزار','إشمول','لازرو','ثنية العابد','نقاوس','عين الجاسر','المعذر','غسيرة','قصبة الدير','فسديس','تازولت','راس العيون','حيدوس','الرحبة','تكوت','شمور','أولاد عمار','ليان','ثالة','بومقر','عمر','الوطاية','قصر بلزمة','أولاد فاضل']},
-  {c:'06',n:'بجاية',del:750,communes:['بجاية','أقبو','خراطة','كرفاو','سيدي عيش','أميزور','سوق الثنين','الفلاي','برباشة','إغرم','أيت رزين','تاسكريوت','بني جليل','تيشي','تيزي نبربر','شلالة','أوزلاقن','بوجليل','فناية الماتن','ملالو','المجانة','درقينة','تيمزريت','أوقاس','أوزو','بني مليكش','أقلعون','بورواق','صدوق','تيفرة','بودوا']},
-  {c:'07',n:'بسكرة',del:850,communes:['بسكرة','طولقة','أولاد جلال','سيدي عقبة','زريبة الوادي','مشونش','جمورة','البسباس','الحاجب','الغروس','برانيس','شتمة','أوماش','قنطرة','خنقة سيدي ناجي','بوشقرون','ليشانة','فوغالة','عيون الناقة','أورلال','بوحجار']},
-  {c:'08',n:'بشار',del:1100,communes:['بشار','عبادلة','كرزاز','ملوكة','القنادسة','إعبيحات','مرومة','ثاليت','تبلبالة','إشر','بوكايس','قصابي','ولتم','تامر']},
-  {c:'09',n:'البليدة',del:600,communes:['البليدة','بوفاريك','الأربعاء','شفة','موزاية','مفتاح','الشريعة','بني مراد','الصومعة','بن خليل','واد جر','لربعاء','القليعة','سحاولة','الصفصاف','بواب','أولاد الحرشة','عين الرمانة','بني تامو','مزفران']},
-  {c:'10',n:'البويرة',del:700,communes:['البويرة','لقصر','عين بسام','سور الغزلان','أقبيل','حيزر','مقلع','ثنية الحد','بوكرام','خليل','واد البردي','دير الشيخ','أجر','ساحل','أغبالو','واضية','تاغزوت','تاغنيمت','عجيبة','أمبيكو','سيدي خالد']},
-  {c:'11',n:'تمنراست',del:1300,communes:['تمنراست','عين صالح','إين قزام','إين أميناس','أبلسة','فوقرت']},
-  {c:'12',n:'تبسة',del:800,communes:['تبسة','الشريعة','بئر العاتر','الونزة','عين الزيتونة','الحويجبات','بكارية','الكويف','موريجان','الجرف','فركان','بئر مقدم','أم الطباقة','سطح الكثان']},
-  {c:'13',n:'تلمسان',del:750,communes:['تلمسان','مغنية','ندرومة','بني صاف','غزوات','هنين','فليسن','بني خلاد','تيسة','شطوان بني عمر','عين يوسف','بني سنوس','الفحول','سباع','أولاد ميمون','سيدي العبد','رمشي','أولاد رياح','شراعة','بنيان','المنصورة','سيدي مجاهد','عقيد','إسصر']},
-  {c:'14',n:'تيارت',del:750,communes:['تيارت','سوق إثنين','مهدية','قصر الشلالة','عين الكرمة','الدحموني','سوق الحضرة','ملاكو','أولاد دحمان','الطيبة','الحسان','فرندة','واد لبيل','مشرع الصفا','بوقره','الغمري','سيدي قادة','تيغنيف']},
-  {c:'15',n:'تيزي وزو',del:700,communes:['تيزي وزو','ذراع بن خدة','عزازقة','بني يني','عين الحمام','تيقزيرت','ماطماطة','أيت خليل','بعزيز','الأربعاء نايت إيراتن','إيلولة أومالو','تيزي غنيف','بني عيسى','واضية','تيقيبيرت','ملاطة','ياتافن','إبودرارن','أزفون','أيت أعيسى ميمون','بني زمنزر','تيرماتين','واريزن','درقينة','مخلوف','بوجيمة','إيزوزار','سيدي نعمان']},
-  {c:'16',n:'الجزائر',del:450,communes:['الجزائر الوسطى','باب الواد','بلكور','الحراش','سيدي امحمد','بئر مراد رايس','القبة','المحمدية','الدويرة','بني مسوس','البياضة','سيدي الشحمي','حسين داي','الأبيار','بئر خادم','درارية','السحاولة','حيدرة','أولاد فايت','الرغاية','باراكي','الحمامات','القرارمة','بوزريعة','المرادية','المدنية','رايس حميدو','الكاليتوس','واد قريش','بابا حسن','دالي إبراهيم','العاشور','زرالدة','تسالة المرمورة','الشراقة','سيدي موسى','الشرفة']},
-  {c:'17',n:'الجلفة',del:850,communes:['الجلفة','داعل','مسعد','عين وسارة','حاسي بحبح','زكار','البيرين','عموري','حاسي العش','ملعب','تعظيم','سيدي لعجال','بنهار','سلمانة','عين شارة','عين أفلة','قطارة','عديلة','سيدي بايزيد','الفيض','قرنيني']},
-  {c:'18',n:'جيجل',del:750,communes:['جيجل','الميلية','الطاهير','غبالة','الشقفة','سلمى بن زيادة','زيامة منصورية','القنار نشفي','بوراوي بلهادف','مجاجة','تاكسنة','القاوس','خير الدين','بودريعة','أميجور','كبيرة','سيدي معروف','الأنصار']},
-  {c:'19',n:'سطيف',del:700,communes:['سطيف','عين أزال','العلمة','بوقاعة','الأرواح','بئر العرش','بازر الصخرة','حمام الدبغ','بني وارثان','عموش','أولاد سيدي احمد','قجال','حمام أولاد علي','عين قشرة','بني عزيز','حمام قرقور','تيزي نبيشة','عين ولمان','بئر حدادة','عين لحجر','عين آرنات','أولاد ادريس','صالح باي','بني يحيى','حمام السخنة','راس الوادي','الولجة','برج الغدير','بوطالب','ودنان']},
-  {c:'20',n:'سعيدة',del:800,communes:['سعيدة','عين الحجر','يوب','الحساسنة','مولاي العربي','ثريا','سيدي أحمد','خشمان','رسفا','سيدي بوبكر']},
-  {c:'21',n:'سكيكدة',del:750,communes:['سكيكدة','الحروش','بن عزوز','عين بوزيان','بوشطاطة','القل','عين شرشار','كركرة','عزابة','القنطرة','رمضان جمال','الكدية','أم الطوب','الزيتونة','بئر بن عبيد','حدادة','الزهور','أولاد حبابة','العيادي برابيس']},
-  {c:'22',n:'سيدي بلعباس',del:750,communes:['سيدي بلعباس','تلاغ','رأس الما','مرين','بئر الحمام','بن باديس','عين تندامين','سيدي إبراهيم','عين الثريد','بن عشيبة لحلاف','لحشم','عمورة','زاوية الشيخ','تفسور','سيدي خالد','أولاد خالد','يرل']},
-  {c:'23',n:'عنابة',del:750,communes:['عنابة','البوني','سيدي عمار','المقاصد','المدية','الحجار','الشرايعية','عين باردة','الأنصار','التوفيق','شطابة','عوانة','سيدي توبال','شورص']},
-  {c:'24',n:'قالمة',del:800,communes:['قالمة','بوشقوف','عين مخلوف','هيليوبوليس','أم العظائم','بن جراح','تاملوكة','بلخير','سلاوة عنونة','وادي الفضة','بوحمدان','النشمية']},
-  {c:'25',n:'قسنطينة',del:700,communes:['قسنطينة','الخروب','عين عبيد','زيغود يوسف','حامة بوزيان','ابن زياد','ديدوش مراد','مسعود بوجريو','بني حميدان','أولاد رحمون']},
-  {c:'26',n:'المدية',del:700,communes:['المدية','كاف لخضر','بني سليمان','واد الدواو','القلب','البرواقية','الأزهر','أولاد ابراهيم','صواف','شلالة الذهبية','مشدالة','حمودي','دراق','خمس جمعات','عين بوسيف','سي الجديدي']},
-  {c:'27',n:'مستغانم',del:750,communes:['مستغانم','موسكاردة','عين تادلس','مزغران','صيادة','سيدي علي','عشعاشة','مصطفى','خضراوي','النقوص','أولاد ماعلة','كراكدة','بلعيمة','تزقايت','واد العثمانية','أولاد بوغالم']},
-  {c:'28',n:'المسيلة',del:750,communes:['المسيلة','بوسعادة','سيدي عيسى','الحمامة','أولاد مادي','تارمونت','الهامل','سليم','بن سرور','ونوغة','خبانة','المطار','صالح باي','بئر قفصة','عين خضراء','قرطة','واد الخير','زرزور','بوعية','حمام الضلعة']},
-  {c:'29',n:'معسكر',del:800,communes:['معسكر','سيق','خيليل','فروحة','غريس','مطاركة','عوف','حكيم','العمرية','زهانة','أولاد مامة','الحشم','ماوعنة','بوهني','سيدي قادة','المحمدية','سيدي بوسعيد','أولاد خلوف','تيغنيف']},
-  {c:'30',n:'ورقلة',del:950,communes:['ورقلة','حاسي مسعود','تقرت','النقوسة','تماسين','سيدي خويلد','البراهيمية','بن ناصر','الرويسات','العالية','التومة']},
-  {c:'31',n:'وهران',del:700,communes:['وهران','عرزيو','سيدي الشحمي','بئر الجير','المرسى الكبير','بوتليليس','طفراوي','سيدي بنور','خميستي','القلعة','سيدي شامي','حاسي بن عقة','عين البياء','السانية','وادي تليلات','بوسفر']},
-  {c:'32',n:'البيض',del:1000,communes:['البيض','الأبيض سيدي الشيخ','بوقطب','الشلالة','ستيتن','أريبط','طريفاوي','عين اعبيد','كمكم','المقطع']},
-  {c:'33',n:'إليزي',del:1400,communes:['إليزي','جانت','دبداب','براقن','إن أميناس','أين قزام']},
-  {c:'34',n:'برج بوعريريج',del:700,communes:['برج بوعريريج','المنصورة','رأس الوادي','بن داود','بئر قفصة','حمله','تيخيوان','الجعافرة','عصبة','عثمانية','بئر قسيس','تقرارت','تيكستار','موهان','أحمر أيدة','الأنصار','حاسي ستاتو','ثنية العابد']},
-  {c:'35',n:'بومرداس',del:650,communes:['بومرداس','بودواو','دلس','ثنية الحد','قورصو','إسحاق','برج منايل','جنجن','أفير','سيدي داود','أولاد هداج','خميس الخشنة','زموري','بن شود','شعبة العامر','الناصرية','تيزي راشد','إسر','لقاطة','حمادي','لفرانة']},
-  {c:'36',n:'الطارف',del:850,communes:['الطارف','القل','بن مهيدي','الشط','عصفور','حمام بني صالح','لخزار','سوق ثلاثاء','بئر الدجاج','سيدي كامل','سيدي معروف','راس الماء']},
-  {c:'37',n:'تندوف',del:1400,communes:['تندوف','أم الصلصال']},
-  {c:'38',n:'تيسمسيلت',del:750,communes:['تيسمسيلت','ثنية الحد','برج امباركي','لاربعاء','أولاد بسام','سيدي سليمان','أولاد لرباح','امدافع','سيدي عنتر','الأرباع','يوسف بن خدة']},
-  {c:'39',n:'الوادي',del:900,communes:['الوادي','الرباح','الطالب العربي','حاسي الخبي','بن قشة','الدبيلة','الحمراية','البياضة','ورماس','تاغزوت','سيدي عون','كوينين','رقيبة','المقرن','حاسي خليفة','الطريفاوي','النخلة','بن غيشة']},
-  {c:'40',n:'خنشلة',del:800,communes:['خنشلة','باغاي','شلية','قايس','أولاد رشاش','ريحانة','خيران','طامزة','عبدي','المحمل','أنسيغة','خنقة سيدي ناجي']},
-  {c:'41',n:'سوق أهراس',del:800,communes:['سوق أهراس','مداوروش','تاورة','سدراتة','أم العدول','تيفاش','زعرورة','ويلان','الدريعة','خميسة','الحنانشة','بن عزيز']},
-  {c:'42',n:'تيبازة',del:650,communes:['تيبازة','شرشل','القليعة','بومردة','أفير','سيدي رحال','أولاد يلس','مسنتن','بواب','حجوط','لاربعاء','الناظور','مراد','نشلاي','مسيب','سيدي الغيلاني']},
-  {c:'43',n:'ميلة',del:750,communes:['ميلة','فرجيوة','الشيقارة','وادي العثمانية','الروساي','أميرة أرياس','أولاد هدة','سيدي خليفة','تسالة','بن يحيى عبد الرحمن','حمالة','الترعي','الأنصار','بوسيف','الطسة','التلاغمة']},
-  {c:'44',n:'عين الدفلى',del:700,communes:['عين الدفلى','الخميس مليانة','شابت','جنجن','مليانة','أولاد بن عبو','سيدي لكدر','بربر','روينة','بئر ولد خليفة','أبو الحسن','واد الشرفاء','العطاف','رواينة','عمورة','الماين','بن علال']},
-  {c:'45',n:'النعامة',del:850,communes:['النعامة','مشريا','عين الصفراء','المشير','أسلة','تيوت','عين بن خليل','الصفاء','قصب','دينة','طيوط','البيوض']},
-  {c:'46',n:'عين تموشنت',del:750,communes:['عين تموشنت','بني صاف','حمام بوحجر','أولاد كيحل','سيدي بن عدة','عقب الليل','العيون','مسرقة','تاشتة زيغة','الأربعاء']},
-  {c:'47',n:'غرداية',del:950,communes:['غرداية','متليلي','القرارة','بريان','بنورة','زلفانة','الأخضر','ضاية بن ضحوة','سبسب','منصورة','حاسي فحل','الشعيبة']},
-  {c:'48',n:'غليزان',del:750,communes:['غليزان','جديوية','واد رهيو','حمادنة','أولاد يعيش','الرمكة','سيدي خطاب','أولاد سيدي منصور','زمورة','عمي موسى','تغاليمت','عين الطرق','المدرور','السعيدية','خلف الله']},
-  {c:'51',n:'أولاد جلال',del:950,communes:['أولاد جلال','الدوسن','سيدي خالد','ليشانة','فوغالة','طولقة','عين الناقة']},
-  {c:'55',n:'تقرت',del:950,communes:['تقرت','تيمقاد','المقارين','العالية','تيبقصت','بن ناصر']},
-  {c:'57',n:'المغير',del:950,communes:['المغير','تندلة','سيدي عمران','المنصورة','العوينة','جامعة','أوقرتي']},
-  {c:'58',n:'المنيعة',del:950,communes:['المنيعة','بريزينة','القرارة','ضاية بن ضحوة','تيميمون']}
+  {c:'01',n:'أدرار',del:1200},{c:'02',n:'الشلف',del:700},{c:'03',n:'الأغواط',del:900},{c:'04',n:'أم البواقي',del:750},{c:'05',n:'باتنة',del:750},{c:'06',n:'بجاية',del:750},{c:'07',n:'بسكرة',del:850},{c:'08',n:'بشار',del:1100},{c:'09',n:'البليدة',del:600},{c:'10',n:'البويرة',del:700},{c:'11',n:'تمنراست',del:1300},{c:'12',n:'تبسة',del:800},{c:'13',n:'تلمسان',del:750},{c:'14',n:'تيارت',del:750},{c:'15',n:'تيزي وزو',del:700},{c:'16',n:'الجزائر',del:450},{c:'17',n:'الجلفة',del:850},{c:'18',n:'جيجل',del:750},{c:'19',n:'سطيف',del:700},{c:'20',n:'سعيدة',del:800},{c:'21',n:'سكيكدة',del:750},{c:'22',n:'سيدي بلعباس',del:750},{c:'23',n:'عنابة',del:750},{c:'24',n:'قالمة',del:800},{c:'25',n:'قسنطينة',del:700},{c:'26',n:'المدية',del:700},{c:'27',n:'مستغانم',del:750},{c:'28',n:'المسيلة',del:750},{c:'29',n:'معسكر',del:800},{c:'30',n:'ورقلة',del:950},{c:'31',n:'وهران',del:700},{c:'32',n:'البيض',del:1000},{c:'33',n:'إليزي',del:1400},{c:'34',n:'برج بوعريريج',del:700},{c:'35',n:'بومرداس',del:650},{c:'36',n:'الطارف',del:850},{c:'37',n:'تندوف',del:1400},{c:'38',n:'تيسمسيلت',del:750},{c:'39',n:'الوادي',del:900},{c:'40',n:'خنشلة',del:800},{c:'41',n:'سوق أهراس',del:800},{c:'42',n:'تيبازة',del:650},{c:'43',n:'ميلة',del:750},{c:'44',n:'عين الدفلى',del:700},{c:'45',n:'النعامة',del:850},{c:'46',n:'عين تموشنت',del:750},{c:'47',n:'غرداية',del:950},{c:'48',n:'غليزان',del:750},{c:'51',n:'أولاد جلال',del:950},{c:'55',n:'تقرت',del:950},{c:'57',n:'المغير',del:950},{c:'58',n:'المنيعة',del:950}
 ];
 
-// ═══════════════════════════════════════════
-// STORAGE
-// ═══════════════════════════════════════════
 function save(){ localStorage.setItem('ams3', JSON.stringify(store)); }
 function load(){
   const r = localStorage.getItem('ams3');
@@ -468,53 +390,13 @@ function load(){
 }
 
 // ═══════════════════════════════════════════
-// SLIDER
+// IMAGE RENDER (SINGLE IMAGE ONLY)
 // ═══════════════════════════════════════════
-function buildSlider(images, emoji){
-  images = (images || []).filter(img =>
-    img && typeof img === "string"
-  );
-  if(!images || images.length === 0){
-    return `<div class="slider-wrap">
-      <div class="slide" style="aspect-ratio:4/3"><span class="slide-emoji">${emoji||'📦'}</span></div>
-    </div>`;
+function buildSingleImage(imgSrc, emoji){
+  if(!imgSrc){
+    return `<div class="single-img-wrap"><span class="slide-emoji">${emoji||'📦'}</span></div>`;
   }
-  const slides = images.map(src=>`
-    <div class="slide"><img src="${src}" loading="lazy"></div>
-  `).join('');
-  const thumbs = images.map((src,i)=>`
-    <div class="thumb${i===0?' active':''}" onclick="goSlide(${i})" id="thumb_${i}">
-      <img src="${src}">
-    </div>
-  `).join('');
-  const dots = images.map((_,i)=>`<div class="dot${i===0?' active':''}" onclick="goSlide(${i})" id="dot_${i}"></div>`).join('');
-  return `
-    <div class="slider-wrap">
-      <div class="slides" id="slidesTrack">${slides}</div>
-      ${images.length>1?`
-        <button class="slider-btn slider-prev" onclick="moveSlide(-1)">&#8250;</button>
-        <button class="slider-btn slider-next" onclick="moveSlide(1)">&#8249;</button>
-        <div class="slider-dots">${dots}</div>
-      `:''}
-    </div>
-    ${images.length>1?`<div class="thumb-row">${thumbs}</div>`:''}
-  `;
-}
-
-function goSlide(i){
-  const track = document.getElementById('slidesTrack');
-  if(!track) return;
-  const total = track.children.length;
-  slideIdx = (i + total) % total;
-  track.style.transform = `translateX(-${slideIdx * 100}%)`;
-  document.querySelectorAll('.dot').forEach((d,idx)=>d.classList.toggle('active', idx===slideIdx));
-  document.querySelectorAll('.thumb').forEach((t,idx)=>t.classList.toggle('active', idx===slideIdx));
-}
-
-function moveSlide(dir){
-  const track = document.getElementById('slidesTrack');
-  if(!track) return;
-  goSlide(slideIdx + dir);
+  return `<div class="single-img-wrap"><img src="${imgSrc}" loading="eager"></div>`;
 }
 
 // ═══════════════════════════════════════════
@@ -526,14 +408,32 @@ function renderProduct(){
     hero.innerHTML=`<div style="text-align:center;padding:60px 0;color:var(--muted)"><div style="font-size:64px;margin-bottom:16px">🛍️</div><p style="font-size:16px;font-weight:600">لا توجد منتجات بعد</p></div>`;
     updateSummary(null); return;
   }
-  const p = store.products[0];
-  const list=document.getElementById('productsList');
-  if(list){
-    list.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:15px 0;">'+store.products.map(pp=>`<div onclick="showProduct('${pp.id}')" style="background:#fff;border:2px solid #111;border-radius:12px;padding:10px;cursor:pointer"><div style="font-weight:800">${pp.name}</div><div style="color:#7c3aed">${pp.price} دج</div></div>`).join('')+'</div>';
+  
+  // إذا لم يتم تحديد منتج حالي، نعرض الأول تلقائياً
+  if(!curProd) {
+    curProd = store.products[0];
   }
-  curProd = p;
-  selColor = p.colors&&p.colors.length ? p.colors[0] : null;
-  slideIdx = 0;
+  
+  const p = curProd;
+  selColor = p.colors && p.colors.length ? p.colors[0] : null;
+
+  // عرض شبكة المنتجات العلوية بشكل سريع وجذاب للجميع
+  const list = document.getElementById('productsList');
+  if(list){
+    list.innerHTML = `
+      <div style="margin: 15px 0 5px 0; font-weight:800; font-size:14px; color:var(--muted);">👇 اختر المنتج للتصفح والطلب:</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:5px 0 20px 0;">
+        ${store.products.map(pp => `
+          <div onclick="showProduct('${pp.id}')" style="background:#fff;border:${pp.id === p.id ? '2.5px solid var(--p)' : '2px solid #111'};border-radius:12px;padding:8px;cursor:pointer;box-shadow:${pp.id === p.id ? '2px 2px 0 var(--p)' : '2px 2px 0 #111'}; transition: all 0.2s;">
+            <div style="width:100%; height:100px; background:#fafafa; border-radius:6px; margin-bottom:6px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+               ${pp.images && pp.images[0] ? `<img src="${pp.images[0]}" style="width:100%; height:100%; object-fit:cover;">` : `<span style="font-size:30px;">${pp.emoji||'⌚'}</span>`}
+            </div>
+            <div style="font-weight:800; font-size:12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color:#111;">${pp.name}</div>
+            <div style="color:var(--p); font-weight:900; font-size:13px; margin-top:2px;">${pp.price} دج</div>
+          </div>
+        `).join('')}
+      </div>`;
+  }
 
   const feats = (p.feats||[]).slice(0,6);
   const featEmojis = ['🚚','✅','⭐','🔒','💎','🎁'];
@@ -541,7 +441,7 @@ function renderProduct(){
   hero.innerHTML = `
     <div class="product-hero">
       <div class="product-images" style="position:relative">
-        ${buildSlider(p.images, p.emoji)}
+        ${buildSingleImage(p.images ? p.images[0] : null, p.emoji)}
         ${p.badge?`<div class="badge-top">${p.badge}</div>`:''}
       </div>
       <div class="product-body">
@@ -560,6 +460,14 @@ function renderProduct(){
       </div>
     </div>`;
   updateSummary(p);
+}
+
+function showProduct(id){
+  const p = store.products.find(x => String(x.id) === String(id));
+  if(!p) return;
+  curProd = p;
+  renderProduct();
+  document.getElementById('orderSection').scrollIntoView({ behavior: 'smooth' });
 }
 
 function pickColor(i){
@@ -589,35 +497,6 @@ function getDelivery(wilayaName){
   return w ? w.del : 500;
 }
 
-
-function showProduct(id){
-  const p=store.products.find(x=>String(x.id)===String(id));
-  if(!p) return;
-  curProd=p;
-  selColor=p.colors&&p.colors.length?p.colors[0]:null;
-  slideIdx=0;
-
-  const hero=document.getElementById('productHero');
-  hero.innerHTML=`
-    <div class="product-hero">
-      <div class="product-images" style="position:relative">
-        ${buildSlider(p.images,p.emoji)}
-        ${p.badge?`<div class="badge-top">${p.badge}</div>`:''}
-      </div>
-      <div class="product-body">
-        <div class="product-name">${p.name}</div>
-        <div class="price-row">
-          <span class="price-main">${p.price} <span class="price-unit">دج</span></span>
-        </div>
-        ${p.desc?`<p class="product-desc">${p.desc}</p>`:''}
-      </div>
-    </div>`;
-  updateSummary(p);
-  goSlide(0);
-}
-// ═══════════════════════════════════════════
-// WILAYAS / COMMUNES
-// ═══════════════════════════════════════════
 function fillWilayas(){
   const sel = document.getElementById('oWilaya');
   sel.innerHTML='<option value="">اختر الولاية</option>';
@@ -633,7 +512,7 @@ function onWilayaChange(){
 }
 
 // ═══════════════════════════════════════════
-// TELEGRAM — FIXED
+// TELEGRAM
 // ═══════════════════════════════════════════
 async function sendTelegram(text){
   const token = store.settings.tgToken.trim();
@@ -646,8 +525,7 @@ async function sendTelegram(text){
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ chat_id: chatId, text: text, parse_mode:'HTML' })
     });
-    const data = await res.json();
-    return data;
+    return await res.json();
   }catch(e){
     return {ok:false, error: e.message};
   }
@@ -664,7 +542,7 @@ async function testTelegram(){
   if(r.ok){
     result.style.color='var(--green)'; result.textContent='✅ تم الإرسال بنجاح!';
   } else {
-    result.style.color='var(--red)'; result.textContent='❌ فشل: '+(r.description||r.error||'تأكد من Token و Chat ID');
+    result.style.color='var(--red)'; result.textContent='❌ فشل: '+(r.description||r.error||'تأكد من البيانات');
   }
 }
 
@@ -678,8 +556,7 @@ async function submitOrder(){
   const wilaya = document.getElementById('oWilaya').value;
   const commune = document.getElementById('oCommune').value;
   if(!name||!phone||!wilaya||!commune){
-    alert('يرجى ملء جميع الحقول المطلوبة');
-    return;
+    alert('يرجى ملء جميع الحقول المطلوبة'); return;
   }
   const btn = document.getElementById('submitBtn');
   btn.innerHTML='<div class="spinner"></div> جاري الإرسال...';
@@ -701,23 +578,9 @@ async function submitOrder(){
   store.orders.unshift(order);
   save();
 
-  const msg =
-`🛍️ <b>طلب جديد — AM Store</b>
+  const msg = `🛍️ <b>طلب جديد — AM Store</b>\n\n🆔 رقم الطلب: ${order.id}\n📦 المنتج: ${order.product}${order.color!=='غير محدد'?' | اللون: '+order.color:''}\n👤 الاسم: ${order.name}\n📞 الهاتف: ${order.phone}\n📍 الولاية: ${order.wilaya}\n🏘️ البلدية: ${order.commune}\n\n💰 سعر المنتج: ${Number(order.price).toLocaleString()} دج\n🚚 سعر التوصيل: ${Number(order.delivery).toLocaleString()} دج\n💵 <b>الإجمالي: ${Number(order.total).toLocaleString()} دج</b>\n\n🕐 ${order.date}`;
 
-🆔 رقم الطلب: ${order.id}
-📦 المنتج: ${order.product}${order.color!=='غير محدد'?' | اللون: '+order.color:''}
-👤 الاسم: ${order.name}
-📞 الهاتف: ${order.phone}
-📍 الولاية: ${order.wilaya}
-🏘️ البلدية: ${order.commune}
-
-💰 سعر المنتج: ${Number(order.price).toLocaleString()} دج
-🚚 سعر التوصيل: ${Number(order.delivery).toLocaleString()} دج
-💵 <b>الإجمالي: ${Number(order.total).toLocaleString()} دج</b>
-
-🕐 ${order.date}`;
-
-  const tgResult = await sendTelegram(msg);
+  await sendTelegram(msg);
   btn.innerHTML='📦 تأكيد الطلب';
   btn.disabled=false;
 
@@ -726,7 +589,7 @@ async function submitOrder(){
 }
 
 // ═══════════════════════════════════════════
-// ADMIN
+// ADMIN & SUPABASE OPERATIONS
 // ═══════════════════════════════════════════
 let loginClicks = 0;
 document.getElementById('logoClick').addEventListener('click',()=>{
@@ -751,7 +614,6 @@ function doLogin(){
 }
 
 function loadAdmin(){
-  // Products list
   const pl = document.getElementById('adminProdList');
   pl.innerHTML = store.products.length
     ? store.products.map(p=>`
@@ -765,7 +627,6 @@ function loadAdmin(){
         </div>`).join('')
     : '<div style="text-align:center;color:var(--muted);padding:40px;font-weight:600">لا توجد منتجات</div>';
 
-  // Orders
   const ol = document.getElementById('adminOrderList');
   ol.innerHTML = store.orders.length
     ? store.orders.map(o=>`
@@ -784,60 +645,26 @@ function loadAdmin(){
         </div>`).join('')
     : '<div style="text-align:center;color:var(--muted);padding:40px;font-weight:600">لا توجد طلبات</div>';
 
-  // Settings
   document.getElementById('sTgToken').value = store.settings.tgToken||'';
   document.getElementById('sTgChat').value = store.settings.tgChat||'';
-
-  // Image slots
-  buildImgSlots();
+  resetSingleImgDrop();
 }
 
-// ═══ IMAGE SLOTS ═══
-let productImages = [null,null,null,null,null]; // up to 5
-
-function buildImgSlots(){
-  productImages = [null,null,null,null,null];
-  const grid = document.getElementById('imgsGrid');
-  grid.innerHTML = productImages.map((_,i)=>`
-    <div class="img-slot" id="slot_${i}" onclick="document.getElementById('imgInput_${i}').click()">
-      <span>📷</span>
-      <input type="file" id="imgInput_${i}" accept="image/*" multiple onchange="slotChange(this,${i})">
-      <button class="del-img" onclick="clearSlot(event,${i})">✕</button>
-    </div>`).join('');
+// معالجة رفع صورة واحدة فقط
+function handleSingleImgUpload(input) {
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    singleProductImage = e.target.result;
+    document.getElementById('singleImgDrop').innerHTML = `<img src="${singleProductImage}"><input type="file" id="singleImgInput" accept="image/*" onchange="handleSingleImgUpload(this)">`;
+  };
+  reader.readAsDataURL(file);
 }
 
-function slotChange(inp, i){
-  const files = Array.from(inp.files || []);
-  if(!files.length) return;
-
-  let pos = i;
-  files.forEach((f)=>{
-    while(pos < 5 && productImages[pos]) pos++;
-    if(pos >= 5) return;
-
-    const r = new FileReader();
-    r.onload = e=>{
-      productImages[pos] = e.target.result;
-      const slot = document.getElementById('slot_'+pos);
-      let img = slot.querySelector('img');
-      if(!img){ img=document.createElement('img'); slot.appendChild(img); }
-      img.src = e.target.result;
-      const sp = slot.querySelector('span');
-      if(sp) sp.style.display='none';
-    };
-    r.readAsDataURL(f);
-    pos++;
-  });
-}
-
-function clearSlot(ev, i){
-  ev.stopPropagation();
-  productImages[i] = null;
-  const slot = document.getElementById('slot_'+i);
-  const img = slot.querySelector('img');
-  if(img) img.remove();
-  slot.querySelector('span').style.display='';
-  document.getElementById('imgInput_'+i).value='';
+function resetSingleImgDrop(){
+  singleProductImage = null;
+  document.getElementById('singleImgDrop').innerHTML = `<span id="dropPrompt">اضغط هنا لرفع الصورة الرئيسية للـمنتج 📷</span><input type="file" id="singleImgInput" accept="image/*" onchange="handleSingleImgUpload(this)">`;
 }
 
 function addColorRow(){
@@ -854,40 +681,75 @@ function getColors(){
   })).filter(c=>c.name);
 }
 
-function saveProduct(){
+// إضافة وحفظ منتج جديد متوافق مع Supabase
+async function saveProduct(){
   const name = document.getElementById('aName').value.trim();
-  const price = document.getElementById('aPrice').value;
+  const price = Number(document.getElementById('aPrice').value||0);
   if(!name||!price){ alert('اسم المنتج والسعر مطلوبان'); return; }
-  const featsRaw = document.getElementById('aFeats').value.trim();
-  const imgs = [...new Set(productImages.filter(Boolean))];
+  
   const p = {
-    id:'P'+Date.now(), name,
-    desc: document.getElementById('aDesc').value.trim(),
-    price: Number(price),
-    oldPrice: Number(document.getElementById('aOldPrice').value)||0,
-    emoji: document.getElementById('aEmoji').value||'📦',
+    name: name,
+    description: document.getElementById('aDesc').value.trim(),
+    price: price,
+    old_price: Number(document.getElementById('aOldPrice').value)||0,
     badge: document.getElementById('aBadge').value.trim(),
-    feats: featsRaw ? featsRaw.split('\n').map(s=>s.trim()).filter(Boolean) : [],
+    emoji: document.getElementById('aEmoji').value||'⌚',
+    images: singleProductImage ? [singleProductImage] : [],
     colors: getColors(),
-    images: imgs
+    features: (document.getElementById('aFeats').value.trim() ? document.getElementById('aFeats').value.trim().split('\n').filter(Boolean) : [])
   };
-  store.products.unshift(p); save(); renderProduct(); loadAdmin();
-  ['aName','aDesc','aPrice','aOldPrice','aEmoji','aBadge','aFeats'].forEach(id=>document.getElementById(id).value='');
-  buildImgSlots();
-  document.getElementById('colorIn').innerHTML=`<div class="ci-row"><input type="color" class="cpick" value="#7c3aed"><input class="form-control" placeholder="اسم اللون" style="flex:1"><button class="bico" onclick="addColorRow()">+</button></div>`;
-  alert('✅ تم إضافة المنتج!');
-  switchTab('tProd', document.querySelector('.tab'));
+
+  try {
+    const res = await fetch(SUPABASE_URL+'/rest/v1/products', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        apikey:SUPABASE_KEY,
+        Authorization:'Bearer '+SUPABASE_KEY,
+        Prefer:'return=representation'
+      },
+      body:JSON.stringify(p)
+    });
+    
+    if(!res.ok) throw new Error('فشل الحفظ في قاعدة البيانات');
+    
+    alert('✅ تم حفظ المنتج بنجاح في Supabase!');
+    
+    // إفراغ الحقول
+    ['aName','aDesc','aPrice','aOldPrice','aEmoji','aBadge','aFeats'].forEach(id=>document.getElementById(id).value='');
+    resetSingleImgDrop();
+    document.getElementById('colorIn').innerHTML=`<div class="ci-row"><input type="color" class="cpick" value="#7c3aed"><input class="form-control" placeholder="اسم اللون" style="flex:1"><button class="bico" onclick="addColorRow()">+</button></div>`;
+    
+    await loadProductsFromSupabase();
+    switchTab('tProd', document.querySelector('.tab'));
+  } catch(e) {
+    alert('خطأ: ' + e.message);
+  }
 }
 
-function delProd(id){
-  if(!confirm('حذف هذا المنتج؟')) return;
-  store.products = store.products.filter(p=>p.id!==id);
-  save(); renderProduct(); loadAdmin();
+// حذف المنتج نهائياً من Supabase
+async function delProd(id){
+  if(!confirm('هل أنت متأكد من حذف هذا المنتج نهائياً؟')) return;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/products?id=eq.${id}`, {
+      method: 'DELETE',
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: 'Bearer '+SUPABASE_KEY
+      }
+    });
+    if(!res.ok) throw new Error('فشل حذف المنتج من السيرفر');
+    alert('✅ تم حذف المنتج');
+    await loadProductsFromSupabase();
+  } catch(e) {
+    alert(e.message);
+  }
 }
 
 function openEdit(id){
   editId = id;
-  const p = store.products.find(x=>x.id===id);
+  const p = store.products.find(x=>String(x.id)===String(id));
+  if(!p) return;
   document.getElementById('eName').value = p.name;
   document.getElementById('eDesc').value = p.desc||'';
   document.getElementById('ePrice').value = p.price;
@@ -898,17 +760,39 @@ function openEdit(id){
   opn('ovEdit');
 }
 
-function updateProd(){
-  const p = store.products.find(x=>x.id===editId); if(!p) return;
-  p.name = document.getElementById('eName').value.trim();
-  p.desc = document.getElementById('eDesc').value.trim();
-  p.price = Number(document.getElementById('ePrice').value);
-  p.oldPrice = Number(document.getElementById('eOldPrice').value)||0;
-  p.emoji = document.getElementById('eEmoji').value;
-  p.badge = document.getElementById('eBadge').value.trim();
-  const fr = document.getElementById('eFeats').value.trim();
-  p.feats = fr ? fr.split('\n').map(s=>s.trim()).filter(Boolean) : [];
-  save(); renderProduct(); loadAdmin(); cls('ovEdit');
+// تحديث وتعديل منتج في Supabase
+async function updateProd(){
+  const p = store.products.find(x=>String(x.id)===String(editId)); 
+  if(!p) return;
+  
+  const updatedData = {
+    name: document.getElementById('eName').value.trim(),
+    description: document.getElementById('eDesc').value.trim(),
+    price: Number(document.getElementById('ePrice').value),
+    old_price: Number(document.getElementById('eOldPrice').value)||0,
+    emoji: document.getElementById('eEmoji').value,
+    badge: document.getElementById('eBadge').value.trim(),
+    features: document.getElementById('eFeats').value.trim() ? document.getElementById('eFeats').value.trim().split('\n').filter(Boolean) : []
+  };
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/products?id=eq.${editId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: SUPABASE_KEY,
+        Authorization: 'Bearer '+SUPABASE_KEY
+      },
+      body: JSON.stringify(updatedData)
+    });
+    
+    if(!res.ok) throw new Error('حدث خطأ أثناء تعديل المنتج');
+    alert('✅ تم تحديث المنتج بنجاح');
+    cls('ovEdit');
+    await loadProductsFromSupabase();
+  } catch(e) {
+    alert(e.message);
+  }
 }
 
 function saveSett(){
@@ -928,48 +812,55 @@ function switchTab(id, btn){
   btn.classList.add('on');
 }
 
-// ═══════════════════════════════════════════
-// OVERLAY HELPERS
-// ═══════════════════════════════════════════
 function opn(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
 function cls(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
 document.querySelectorAll('.overlay').forEach(o=>{
   o.addEventListener('click', e=>{ if(e.target===o) cls(o.id); });
 });
 
-// ═══════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════
-document.addEventListener('DOMContentLoaded',()=>{
-  load(); fillWilayas(); renderProduct();
-});
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</body>
-</html>
-
-<script>
+// جلب المنتجات بشكل فوري فوري وسريع للجميع دون أي تأخير
 async function loadProductsFromSupabase(){
  try{
- const r=await fetch(SUPABASE_URL+'/rest/v1/products?select=*', {headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});
- const data=await r.json();
- if(Array.isArray(data)&&data.length){
-   store.products=data.map(x=>({id:x.id,name:x.name,desc:x.description,price:x.price,oldPrice:x.old_price||0,badge:x.badge||'',emoji:x.emoji||'📦',images:x.images||[],colors:x.colors||[],feats:x.features||[]}));
-   renderProduct();
- }
- }catch(e){console.log(e)}
+   const r=await fetch(SUPABASE_URL+'/rest/v1/products?select=*', {
+     headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}
+   });
+   const data=await r.json();
+   if(Array.isArray(data)){
+     store.products = data.map(x=>({
+       id:x.id,
+       name:x.name,
+       desc:x.description,
+       price:x.price,
+       oldPrice:x.old_price||0,
+       badge:x.badge||'',
+       emoji:x.emoji||'📦',
+       images:x.images||[],
+       colors:x.colors||[],
+       feats:x.features||[]
+     }));
+     
+     // الحفاظ على المنتج الحالي إذا كان موجوداً، أو تعيين المنتج الأول
+     if(store.products.length && !curProd) {
+       curProd = store.products[0];
+     } else if(curProd) {
+       // تحديث بيانات المنتج الحالي من السيرفر
+       curProd = store.products.find(x => String(x.id) === String(curProd.id)) || store.products[0];
+     }
+     
+     renderProduct();
+     if(document.getElementById('ovAdmin').classList.contains('open')) {
+       loadAdmin();
+     }
+   }
+ }catch(e){console.log('Supabase Error:', e)}
 }
-const _oldSaveProduct=window.saveProduct;
-window.saveProduct=async function(){
- const name=document.getElementById('aName').value.trim();
- const price=Number(document.getElementById('aPrice').value||0);
- if(!name||!price){alert('اسم المنتج والسعر مطلوبان');return;}
- const p={name:name,description:document.getElementById('aDesc').value.trim(),price:price,old_price:Number(document.getElementById('aOldPrice').value)||0,badge:document.getElementById('aBadge').value.trim(),emoji:document.getElementById('aEmoji').value||'📦',images:[...new Set(productImages.filter(Boolean))],colors:getColors(),features:(document.getElementById('aFeats').value.trim()?document.getElementById('aFeats').value.trim().split('\n').filter(Boolean):[])};
- try{
- await fetch(SUPABASE_URL+'/rest/v1/products',{method:'POST',headers:{'Content-Type':'application/json',apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,Prefer:'return=representation'},body:JSON.stringify(p)});
- alert('تم الحفظ في Supabase');
- loadProductsFromSupabase();
- }catch(e){alert('خطأ '+e.message)}
-}
-document.addEventListener('DOMContentLoaded',()=>setTimeout(loadProductsFromSupabase,1000));
+
+// تشغيل جلب البيانات فوراً عند جهوزية الـ DOM لضمان سرعة فائقة
+document.addEventListener('DOMContentLoaded',()=>{
+  load(); 
+  fillWilayas(); 
+  loadProductsFromSupabase();
+});
 </script>
+</body>
+</html>
