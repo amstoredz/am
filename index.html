@@ -110,4 +110,789 @@ header{background:#fff;border-bottom:2px solid #111;padding:0 20px;position:stic
   border:2px solid #111;border-radius:10px;
   padding:11px 14px;color:#111;
   font-family:'Tajawal',sans-serif;font-size:14px;
-  outline:none;trans
+  outline:none;transition:box-shadow .2s, border-color .2s;
+  appearance:none;-webkit-appearance:none;
+  font-weight:500;
+}
+.form-control:focus{box-shadow:3px 3px 0 #111;border-color:#111;}
+select.form-control{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23111' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 14px center;padding-left:36px;}
+option{background:#fff;color:#111;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+
+/* SUBMIT */
+.btn-submit{width:100%;background:#111;color:#fff;border:2px solid #111;padding:15px;border-radius:12px;font-family:'Tajawal',sans-serif;font-size:16px;font-weight:800;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:3px 3px 0 var(--p);margin-top:4px;}
+.btn-submit:hover{background:var(--p);box-shadow:3px 3px 0 #111;}
+.btn-submit:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--p);}
+.btn-submit:disabled{opacity:.7;cursor:not-allowed;}
+
+/* SUCCESS */
+.success-wrap{display:none;text-align:center;padding:10px 0 16px;}
+.success-icon{font-size:52px;margin-bottom:12px;}
+.success-wrap h3{font-size:20px;font-weight:900;color:var(--green);margin-bottom:8px;}
+.success-wrap p{font-size:14px;color:var(--muted);line-height:1.8;}
+
+/* FOOTER */
+footer{background:#111;padding:24px;text-align:center;color:#aaa;font-size:12px;margin-top:30px;}
+footer .f-logo{font-size:17px;font-weight:900;color:#fff;display:block;margin-bottom:7px;letter-spacing:1px;}
+
+/* OVERLAY / MODAL */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:center;justify-content:center;padding:14px;opacity:0;pointer-events:none;transition:opacity .25s;}
+.overlay.open{opacity:1;pointer-events:all;}
+.modal{background:#fff;border:2px solid #111;border-radius:16px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(14px);transition:transform .25s;box-shadow:5px 5px 0 #111;}
+.overlay.open .modal{transform:translateY(0);}
+.modal-hdr{padding:16px 20px;border-bottom:2px solid #111;display:flex;align-items:center;justify-content:space-between;}
+.modal-hdr h2{font-size:15px;font-weight:800;color:#111;}
+.btn-x{background:#f1f1f1;border:2px solid #111;color:#111;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:700;}
+.btn-x:hover{background:#111;color:#fff;}
+.modal-body{padding:20px;}
+
+/* ADMIN TABS */
+.admin-tabs{display:flex;gap:5px;background:#f1f1f1;padding:5px;border-radius:10px;margin-bottom:18px;border:2px solid #111;}
+.tab{flex:1;padding:8px;border:none;background:transparent;color:var(--muted);font-family:'Tajawal',sans-serif;font-size:13px;font-weight:700;border-radius:7px;cursor:pointer;transition:all .2s;}
+.tab.on{background:#111;color:#fff;}
+.tcontent{display:none;}.tcontent.on{display:block;}
+
+/* ADMIN PRODUCT LIST */
+.prod-list{display:flex;flex-direction:column;gap:9px;}
+.prod-row{background:#f9f9f9;border:2px solid #111;border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:2px 2px 0 #ddd;}
+.prod-thumb{width:50px;height:50px;border-radius:7px;border:2px solid #111;display:flex;align-items:center;justify-content:center;font-size:24px;overflow:hidden;flex-shrink:0;background:#f3f0ff;}
+.prod-thumb img{width:100%;height:100%;object-fit:cover;}
+.prod-info{flex:1;min-width:0;}
+.prod-n{font-weight:800;font-size:14px;margin-bottom:2px;color:#111;}
+.prod-p{font-size:12px;color:var(--p);font-weight:700;}
+.prod-acts{display:flex;gap:6px;}
+.bs{padding:6px 12px;border-radius:7px;font-family:'Tajawal',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;}
+.be{background:#fff;color:#111;border:2px solid #111;}
+.be:hover{background:#111;color:#fff;}
+.bd{background:#fff;color:var(--red);border:2px solid var(--red);}
+.bd:hover{background:var(--red);color:#fff;}
+
+/* ADD FORM */
+.form-add{background:#f9f9f9;border:2px solid #111;border-radius:12px;padding:16px;}
+.img-drop{width:100%;aspect-ratio:16/9;border:2px dashed #111;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:7px;color:var(--muted);font-size:13px;font-weight:600;transition:all .2s;overflow:hidden;position:relative;margin-bottom:13px;background:#fff;}
+.img-drop:hover{border-style:solid;background:#f3f0ff;}
+.img-drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.img-drop input{display:none;}
+.color-in{display:flex;flex-direction:column;gap:7px;}
+.ci-row{display:flex;gap:7px;align-items:center;}
+.cpick{width:36px;height:36px;border-radius:7px;border:2px solid #111;cursor:pointer;padding:2px;background:#fff;}
+.bico{width:34px;height:34px;border-radius:7px;border:2px solid #111;background:#fff;color:#111;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;font-weight:700;transition:all .2s;flex-shrink:0;}
+.bico:hover{background:#111;color:#fff;}
+
+/* ORDERS */
+.orders-list{display:flex;flex-direction:column;gap:9px;}
+.order-card{background:#f9f9f9;border:2px solid #111;border-radius:10px;padding:13px;box-shadow:2px 2px 0 #ddd;}
+.oc-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;flex-wrap:wrap;gap:5px;}
+.oc-id{font-size:12px;font-weight:800;color:var(--p);}
+.oc-date{font-size:11px;color:var(--muted);}
+.badge-new{display:inline-block;padding:2px 9px;border-radius:100px;font-size:11px;font-weight:700;background:#fff;color:var(--green);border:1.5px solid var(--green);}
+.oc-body{font-size:13px;color:var(--muted);line-height:1.9;}
+
+/* SETTINGS */
+.sett-form{background:#f9f9f9;border:2px solid #111;border-radius:12px;padding:16px;}
+.btn-save{width:100%;background:#111;color:#fff;border:2px solid #111;padding:13px;border-radius:10px;font-family:'Tajawal',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:4px;box-shadow:3px 3px 0 var(--p);}
+.btn-save:hover{background:var(--p);box-shadow:3px 3px 0 #111;}
+.saved-msg{color:var(--green);font-size:13px;text-align:center;margin-top:10px;display:none;font-weight:700;}
+
+/* IMG UPLOAD MULTI */
+.imgs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:13px;}
+.img-slot{aspect-ratio:1;border:2px dashed #ccc;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;background:#fff;font-size:22px;transition:border-color .2s;}
+.img-slot:hover{border-color:#111;}
+.img-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.img-slot input{display:none;}
+.img-slot .del-img{position:absolute;top:3px;left:3px;background:#111;color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;display:none;align-items:center;justify-content:center;font-weight:700;}
+.img-slot:hover .del-img{display:flex;}
+
+/* SPINNER */
+.spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* HELP NOTE */
+.help-note{background:#f0fdf4;border:2px solid var(--green);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--green);font-weight:600;margin-bottom:14px;line-height:1.7;}
+
+@media(max-width:500px){
+  .form-row{grid-template-columns:1fr;}
+  .feats{grid-template-columns:1fr 1fr;}
+  .trust-row{grid-template-columns:repeat(3,1fr);}
+  .imgs-grid{grid-template-columns:repeat(3,1fr);}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="logo" id="logoClick">
+      <div class="logo-box">AM</div>
+      <span class="logo-name">AM Store</span>
+    </div>
+    <div class="hdr-badge">⭐ توصيل لجميع الولايات</div>
+  </div>
+</header>
+
+<div class="page">
+  <div id="productHero"></div>
+
+  <div class="trust-row">
+    <div class="trust-item"><div class="trust-icon">🚚</div><div class="trust-txt">توصيل سريع لباب بيتك</div></div>
+    <div class="trust-item"><div class="trust-icon">✅</div><div class="trust-txt">منتجات مضمونة الجودة</div></div>
+    <div class="trust-item"><div class="trust-icon">📞</div><div class="trust-txt">دعم ما بعد الشراء</div></div>
+  </div>
+
+  <!-- ORDER FORM -->
+  <div class="order-section" id="orderSection">
+    <div class="order-title">🛒 أتمم طلبك الآن</div>
+    <div id="orderFormWrap">
+      <div class="order-sum" id="orderSummary"></div>
+      <div class="form-group">
+        <div class="form-label"><span>👤</span> الاسم الكامل *</div>
+        <input class="form-control" id="oName" placeholder="أدخل اسمك الكامل">
+      </div>
+      <div class="form-group">
+        <div class="form-label"><span>📞</span> رقم الهاتف *</div>
+        <input class="form-control" id="oPhone" type="tel" placeholder="05XXXXXXXX">
+      </div>
+      <div class="form-row">
+        <div class="form-group" style="margin-bottom:0">
+          <div class="form-label"><span>🗺️</span> الولاية *</div>
+          <select class="form-control" id="oWilaya" onchange="onWilayaChange()">
+            <option value="">اختر الولاية</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <div class="form-label"><span>🏘️</span> البلدية *</div>
+          <input class="form-control" id="oCommune" placeholder="اكتب اسم البلدية">
+        </div>
+      </div>
+      <br>
+      <button class="btn-submit" id="submitBtn" onclick="submitOrder()">📦 تأكيد الطلب</button>
+    </div>
+    <div class="success-wrap" id="successWrap">
+      <div class="success-icon">✅</div>
+      <h3>تم استلام طلبك!</h3>
+      <p>شكراً لك على ثقتك بـ <strong>AM Store</strong><br>سوف يتم التواصل معكم في أقرب وقت ممكن 🙏</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="f-logo">AM Store</span>
+  جميع الحقوق محفوظة © 2025 — توصيل لجميع ولايات الجزائر
+</footer>
+
+<!-- ADMIN LOGIN -->
+<div class="overlay" id="ovLogin">
+  <div class="modal" style="max-width:340px">
+    <div class="modal-hdr"><h2>🔐 لوحة التحكم</h2><button class="btn-x" onclick="cls('ovLogin')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><div class="form-label">كلمة المرور</div><input class="form-control" id="loginPwd" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div id="loginErr" style="color:var(--red);font-size:13px;margin-bottom:10px;display:none;font-weight:700">❌ كلمة المرور غير صحيحة</div>
+      <button class="btn-save" onclick="doLogin()">دخول ←</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="overlay" id="ovAdmin">
+  <div class="modal" style="max-width:680px">
+    <div class="modal-hdr"><h2>⚙️ لوحة التحكم — AM Store</h2><button class="btn-x" onclick="cls('ovAdmin')">✕</button></div>
+    <div class="modal-body">
+      <div class="admin-tabs">
+        <button class="tab on" onclick="switchTab('tProd',this)">المنتجات</button>
+        <button class="tab" onclick="switchTab('tAdd',this)">إضافة</button>
+        <button class="tab" onclick="switchTab('tOrders',this)">الطلبات</button>
+        <button class="tab" onclick="switchTab('tSett',this)">الإعدادات</button>
+      </div>
+
+      <div class="tcontent on" id="tProd">
+        <div class="prod-list" id="adminProdList"></div>
+      </div>
+
+      <div class="tcontent" id="tAdd">
+        <div class="form-add">
+          <div class="form-label" style="margin-bottom:9px">📷 صور المنتج (حتى 5 صور)</div>
+          <div class="imgs-grid" id="imgsGrid"></div>
+          <div class="form-group"><div class="form-label">اسم المنتج *</div><input class="form-control" id="aName" placeholder="مثال: حذاء Nike Air"></div>
+          <div class="form-group"><div class="form-label">وصف المنتج</div><textarea class="form-control" id="aDesc" rows="3" placeholder="وصف مختصر..."></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><div class="form-label">السعر (دج) *</div><input class="form-control" id="aPrice" type="number" placeholder="0"></div>
+            <div class="form-group"><div class="form-label">سعر قديم (دج)</div><input class="form-control" id="aOldPrice" type="number" placeholder="0"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><div class="form-label">إيموجي</div><input class="form-control" id="aEmoji" placeholder="👟" maxlength="4"></div>
+            <div class="form-group"><div class="form-label">شارة</div><input class="form-control" id="aBadge" placeholder="الأكثر مبيعاً"></div>
+          </div>
+          <div class="form-group"><div class="form-label">المميزات (سطر لكل ميزة)</div><textarea class="form-control" id="aFeats" rows="4" placeholder="توصيل سريع&#10;ضمان الجودة&#10;سهل الاستخدام&#10;ألوان متعددة"></textarea></div>
+          <div class="form-group">
+            <div class="form-label">الألوان المتاحة</div>
+            <div class="color-in" id="colorIn">
+              <div class="ci-row"><input type="color" class="cpick" value="#7c3aed"><input class="form-control" placeholder="اسم اللون" style="flex:1"><button class="bico" onclick="addColorRow()">+</button></div>
+            </div>
+          </div>
+          <button class="btn-save" onclick="saveProduct()">💾 حفظ المنتج</button>
+        </div>
+      </div>
+
+      <div class="tcontent" id="tOrders">
+        <div class="orders-list" id="adminOrderList"></div>
+      </div>
+
+      <div class="tcontent" id="tSett">
+        <div class="sett-form">
+          <div class="help-note">
+            📱 <strong>كيفية ربط التيليقرام:</strong><br>
+            1. ابحث عن <strong>@BotFather</strong> وأنشئ بوتاً جديداً واحفظ الـ Token<br>
+            2. ابدأ محادثة مع البوت ثم ابحث عن <strong>@userinfobot</strong> للحصول على Chat ID<br>
+            3. أدخل البيانات أدناه واحفظ
+          </div>
+          <div class="form-group"><div class="form-label">🤖 Bot Token</div><input class="form-control" id="sTgToken" placeholder="123456789:AAxxxxxx..."></div>
+          <div class="form-group"><div class="form-label">💬 Chat ID</div><input class="form-control" id="sTgChat" placeholder="مثال: 123456789"></div>
+          <div class="form-group"><div class="form-label">🔑 كلمة مرور جديدة (اتركها فارغة لعدم التغيير)</div><input class="form-control" id="sNewPwd" type="password" placeholder="••••••••"></div>
+          <button class="btn-save" onclick="saveSett()">💾 حفظ الإعدادات</button>
+          <div class="saved-msg" id="settSaved">✅ تم الحفظ بنجاح!</div>
+          <div style="margin-top:14px;text-align:center">
+            <button class="bs be" style="font-size:13px" onclick="testTelegram()">🧪 اختبار الإرسال للتيليقرام</button>
+            <div id="testResult" style="font-size:12px;margin-top:8px;font-weight:700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT PRODUCT -->
+<div class="overlay" id="ovEdit">
+  <div class="modal" style="max-width:500px">
+    <div class="modal-hdr"><h2>✏️ تعديل المنتج</h2><button class="btn-x" onclick="cls('ovEdit')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><div class="form-label">الاسم</div><input class="form-control" id="eName"></div>
+      <div class="form-group"><div class="form-label">الوصف</div><textarea class="form-control" id="eDesc" rows="3"></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><div class="form-label">السعر (دج)</div><input class="form-control" id="ePrice" type="number"></div>
+        <div class="form-group"><div class="form-label">سعر قديم</div><input class="form-control" id="eOldPrice" type="number"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><div class="form-label">إيموجي</div><input class="form-control" id="eEmoji" maxlength="4"></div>
+        <div class="form-group"><div class="form-label">شارة</div><input class="form-control" id="eBadge"></div>
+      </div>
+      <div class="form-group"><div class="form-label">المميزات (سطر لكل ميزة)</div><textarea class="form-control" id="eFeats" rows="4"></textarea></div>
+      <button class="btn-save" onclick="updateProd()">💾 حفظ التعديلات</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// STORE STATE
+// ═══════════════════════════════════════════
+let store = {
+  products: [],
+  orders: [],
+  settings: { tgToken:'', tgChat:'', password:'admin123' }
+};
+let curProd = null, selColor = null, editId = null;
+let slideIdx = 0;
+
+// ═══════════════════════════════════════════
+// WILAYAS — كل ولاية مع سعر التوصيل والبلديات
+// ═══════════════════════════════════════════
+const WILAYAS = [
+  {c:'01',n:'أدرار',del:1200,communes:['أدرار','رقان','تيمياوين','أولف','بوداء','تيت','شروين','فنوغيل','أقبلي','تيميمون','زاوية كنتة','متارفة','إن زغمير','أولاد سعيد','دلدول','تسابيت','أوقروت','سالي']},
+  {c:'02',n:'الشلف',del:700,communes:['الشلف','تنس','بني حواء','الكريمية','واد فضة','بني بوعتاب','الحرشون','أبو الحسن','الحجاج','بريرة','عين مران','لبصة','المرسى','سيدي عكاشة','بوزغاية','أولاد فارس','أولاد عباس','الصبحة','تاجنة','بوقدير','العطاف','ذهبي','بني رشد']},
+  {c:'03',n:'الأغواط',del:900,communes:['الأغواط','قصر الحيران','حاسي الرمل','عين ماضي','قلتة سيدي سعد','السبقاق','سيدي بوزيد','تاجموت','تاجرونة','الحويطة','بن ناصر بن شهرة','أفلو','حاسي الدلاعة','برج الخيص','عمور','غيلازة']},
+  {c:'04',n:'أم البواقي',del:750,communes:['أم البواقي','عين البيضاء','عين مليلة','سيقوس','عين فكرون','عين الديس','عين السلام','فكيرينة','عين قشرة','سوق نعمان','عين دشرة','مسكيانة','الرحية','وادي نيني','الجازية','حمام الصالحين','جلال','كيمل','ذاود']},
+  {c:'05',n:'باتنة',del:750,communes:['باتنة','عين التوتة','مروانة','أريس','بريكة','سريانة','منعة','تيمقاد','بني فضالة','الجزار','إشمول','لازرو','ثنية العابد','نقاوس','عين الجاسر','المعذر','غسيرة','قصبة الدير','فسديس','تازولت','راس العيون','حيدوس','الرحبة','تكوت','شمور','أولاد عمار','ليان','ثالة','بومقر','عمر','الوطاية','قصر بلزمة','أولاد فاضل']},
+  {c:'06',n:'بجاية',del:750,communes:['بجاية','أقبو','خراطة','كرفاو','سيدي عيش','أميزور','سوق الثنين','الفلاي','برباشة','إغرم','أيت رزين','تاسكريوت','بني جليل','تيشي','تيزي نبربر','شلالة','أوزلاقن','بوجليل','فناية الماتن','ملالو','المجانة','درقينة','تيمزريت','أوقاس','أوزو','بني مليكش','أقلعون','بورواق','صدوق','تيفرة','بودوا']},
+  {c:'07',n:'بسكرة',del:850,communes:['بسكرة','طولقة','أولاد جلال','سيدي عقبة','زريبة الوادي','مشونش','جمورة','البسباس','الحاجب','الغروس','برانيس','شتمة','أوماش','قنطرة','خنقة سيدي ناجي','بوشقرون','ليشانة','فوغالة','عيون الناقة','أورلال','بوحجار']},
+  {c:'08',n:'بشار',del:1100,communes:['بشار','عبادلة','كرزاز','ملوكة','القنادسة','إعبيحات','مرومة','ثاليت','تبلبالة','إشر','بوكايس','قصابي','ولتم','تامر']},
+  {c:'09',n:'البليدة',del:600,communes:['البليدة','بوفاريك','الأربعاء','شفة','موزاية','مفتاح','الشريعة','بني مراد','الصومعة','بن خليل','واد جر','لربعاء','القليعة','سحاولة','الصفصاف','بواب','أولاد الحرشة','عين الرمانة','بني تامو','مزفران']},
+  {c:'10',n:'البويرة',del:700,communes:['البويرة','لقصر','عين بسام','سور الغزلان','أقبيل','حيزر','مقلع','ثنية الحد','بوكرام','خليل','واد البردي','دير الشيخ','أجر','ساحل','أغبالو','واضية','تاغزوت','تاغنيمت','عجيبة','أمبيكو','سيدي خالد']},
+  {c:'11',n:'تمنراست',del:1300,communes:['تمنراست','عين صالح','إين قزام','إين أميناس','أبلسة','فوقرت']},
+  {c:'12',n:'تبسة',del:800,communes:['تبسة','الشريعة','بئر العاتر','الونزة','عين الزيتونة','الحويجبات','بكارية','الكويف','موريجان','الجرف','فركان','بئر مقدم','أم الطباقة','سطح الكثان']},
+  {c:'13',n:'تلمسان',del:750,communes:['تلمسان','مغنية','ندرومة','بني صاف','غزوات','هنين','فليسن','بني خلاد','تيسة','شطوان بني عمر','عين يوسف','بني سنوس','الفحول','سباع','أولاد ميمون','سيدي العبد','رمشي','أولاد رياح','شراعة','بنيان','المنصورة','سيدي مجاهد','عقيد','إسصر']},
+  {c:'14',n:'تيارت',del:750,communes:['تيارت','سوق إثنين','مهدية','قصر الشلالة','عين الكرمة','الدحموني','سوق الحضرة','ملاكو','أولاد دحمان','الطيبة','الحسان','فرندة','واد لبيل','مشرع الصفا','بوقره','الغمري','سيدي قادة','تيغنيف']},
+  {c:'15',n:'تيزي وزو',del:700,communes:['تيزي وزو','ذراع بن خدة','عزازقة','بني يني','عين الحمام','تيقزيرت','ماطماطة','أيت خليل','بعزيز','الأربعاء نايت إيراتن','إيلولة أومالو','تيزي غنيف','بني عيسى','واضية','تيقيبيرت','ملاطة','ياتافن','إبودرارن','أزفون','أيت أعيسى ميمون','بني زمنزر','تيرماتين','واريزن','درقينة','مخلوف','بوجيمة','إيزوزار','سيدي نعمان']},
+  {c:'16',n:'الجزائر',del:450,communes:['الجزائر الوسطى','باب الواد','بلكور','الحراش','سيدي امحمد','بئر مراد رايس','القبة','المحمدية','الدويرة','بني مسوس','البياضة','سيدي الشحمي','حسين داي','الأبيار','بئر خادم','درارية','السحاولة','حيدرة','أولاد فايت','الرغاية','باراكي','الحمامات','القرارمة','بوزريعة','المرادية','المدنية','رايس حميدو','الكاليتوس','واد قريش','بابا حسن','دالي إبراهيم','العاشور','زرالدة','تسالة المرمورة','الشراقة','سيدي موسى','الشرفة']},
+  {c:'17',n:'الجلفة',del:850,communes:['الجلفة','داعل','مسعد','عين وسارة','حاسي بحبح','زكار','البيرين','عموري','حاسي العش','ملعب','تعظيم','سيدي لعجال','بنهار','سلمانة','عين شارة','عين أفلة','قطارة','عديلة','سيدي بايزيد','الفيض','قرنيني']},
+  {c:'18',n:'جيجل',del:750,communes:['جيجل','الميلية','الطاهير','غبالة','الشقفة','سلمى بن زيادة','زيامة منصورية','القنار نشفي','بوراوي بلهادف','مجاجة','تاكسنة','القاوس','خير الدين','بودريعة','أميجور','كبيرة','سيدي معروف','الأنصار']},
+  {c:'19',n:'سطيف',del:700,communes:['سطيف','عين أزال','العلمة','بوقاعة','الأرواح','بئر العرش','بازر الصخرة','حمام الدبغ','بني وارثان','عموش','أولاد سيدي احمد','قجال','حمام أولاد علي','عين قشرة','بني عزيز','حمام قرقور','تيزي نبيشة','عين ولمان','بئر حدادة','عين لحجر','عين آرنات','أولاد ادريس','صالح باي','بني يحيى','حمام السخنة','راس الوادي','الولجة','برج الغدير','بوطالب','ودنان']},
+  {c:'20',n:'سعيدة',del:800,communes:['سعيدة','عين الحجر','يوب','الحساسنة','مولاي العربي','ثريا','سيدي أحمد','خشمان','رسفا','سيدي بوبكر']},
+  {c:'21',n:'سكيكدة',del:750,communes:['سكيكدة','الحروش','بن عزوز','عين بوزيان','بوشطاطة','القل','عين شرشار','كركرة','عزابة','القنطرة','رمضان جمال','الكدية','أم الطوب','الزيتونة','بئر بن عبيد','حدادة','الزهور','أولاد حبابة','العيادي برابيس']},
+  {c:'22',n:'سيدي بلعباس',del:750,communes:['سيدي بلعباس','تلاغ','رأس الما','مرين','بئر الحمام','بن باديس','عين تندامين','سيدي إبراهيم','عين الثريد','بن عشيبة لحلاف','لحشم','عمورة','زاوية الشيخ','تفسور','سيدي خالد','أولاد خالد','يرل']},
+  {c:'23',n:'عنابة',del:750,communes:['عنابة','البوني','سيدي عمار','المقاصد','المدية','الحجار','الشرايعية','عين باردة','الأنصار','التوفيق','شطابة','عوانة','سيدي توبال','شورص']},
+  {c:'24',n:'قالمة',del:800,communes:['قالمة','بوشقوف','عين مخلوف','هيليوبوليس','أم العظائم','بن جراح','تاملوكة','بلخير','سلاوة عنونة','وادي الفضة','بوحمدان','النشمية']},
+  {c:'25',n:'قسنطينة',del:700,communes:['قسنطينة','الخروب','عين عبيد','زيغود يوسف','حامة بوزيان','ابن زياد','ديدوش مراد','مسعود بوجريو','بني حميدان','أولاد رحمون']},
+  {c:'26',n:'المدية',del:700,communes:['المدية','كاف لخضر','بني سليمان','واد الدواو','القلب','البرواقية','الأزهر','أولاد ابراهيم','صواف','شلالة الذهبية','مشدالة','حمودي','دراق','خمس جمعات','عين بوسيف','سي الجديدي']},
+  {c:'27',n:'مستغانم',del:750,communes:['مستغانم','موسكاردة','عين تادلس','مزغران','صيادة','سيدي علي','عشعاشة','مصطفى','خضراوي','النقوص','أولاد ماعلة','كراكدة','بلعيمة','تزقايت','واد العثمانية','أولاد بوغالم']},
+  {c:'28',n:'المسيلة',del:750,communes:['المسيلة','بوسعادة','سيدي عيسى','الحمامة','أولاد مادي','تارمونت','الهامل','سليم','بن سرور','ونوغة','خبانة','المطار','صالح باي','بئر قفصة','عين خضراء','قرطة','واد الخير','زرزور','بوعية','حمام الضلعة']},
+  {c:'29',n:'معسكر',del:800,communes:['معسكر','سيق','خيليل','فروحة','غريس','مطاركة','عوف','حكيم','العمرية','زهانة','أولاد مامة','الحشم','ماوعنة','بوهني','سيدي قادة','المحمدية','سيدي بوسعيد','أولاد خلوف','تيغنيف']},
+  {c:'30',n:'ورقلة',del:950,communes:['ورقلة','حاسي مسعود','تقرت','النقوسة','تماسين','سيدي خويلد','البراهيمية','بن ناصر','الرويسات','العالية','التومة']},
+  {c:'31',n:'وهران',del:700,communes:['وهران','عرزيو','سيدي الشحمي','بئر الجير','المرسى الكبير','بوتليليس','طفراوي','سيدي بنور','خميستي','القلعة','سيدي شامي','حاسي بن عقة','عين البياء','السانية','وادي تليلات','بوسفر']},
+  {c:'32',n:'البيض',del:1000,communes:['البيض','الأبيض سيدي الشيخ','بوقطب','الشلالة','ستيتن','أريبط','طريفاوي','عين اعبيد','كمكم','المقطع']},
+  {c:'33',n:'إليزي',del:1400,communes:['إليزي','جانت','دبداب','براقن','إن أميناس','أين قزام']},
+  {c:'34',n:'برج بوعريريج',del:700,communes:['برج بوعريريج','المنصورة','رأس الوادي','بن داود','بئر قفصة','حمله','تيخيوان','الجعافرة','عصبة','عثمانية','بئر قسيس','تقرارت','تيكستار','موهان','أحمر أيدة','الأنصار','حاسي ستاتو','ثنية العابد']},
+  {c:'35',n:'بومرداس',del:650,communes:['بومرداس','بودواو','دلس','ثنية الحد','قورصو','إسحاق','برج منايل','جنجن','أفير','سيدي داود','أولاد هداج','خميس الخشنة','زموري','بن شود','شعبة العامر','الناصرية','تيزي راشد','إسر','لقاطة','حمادي','لفرانة']},
+  {c:'36',n:'الطارف',del:850,communes:['الطارف','القل','بن مهيدي','الشط','عصفور','حمام بني صالح','لخزار','سوق ثلاثاء','بئر الدجاج','سيدي كامل','سيدي معروف','راس الماء']},
+  {c:'37',n:'تندوف',del:1400,communes:['تندوف','أم الصلصال']},
+  {c:'38',n:'تيسمسيلت',del:750,communes:['تيسمسيلت','ثنية الحد','برج امباركي','لاربعاء','أولاد بسام','سيدي سليمان','أولاد لرباح','امدافع','سيدي عنتر','الأرباع','يوسف بن خدة']},
+  {c:'39',n:'الوادي',del:900,communes:['الوادي','الرباح','الطالب العربي','حاسي الخبي','بن قشة','الدبيلة','الحمراية','البياضة','ورماس','تاغزوت','سيدي عون','كوينين','رقيبة','المقرن','حاسي خليفة','الطريفاوي','النخلة','بن غيشة']},
+  {c:'40',n:'خنشلة',del:800,communes:['خنشلة','باغاي','شلية','قايس','أولاد رشاش','ريحانة','خيران','طامزة','عبدي','المحمل','أنسيغة','خنقة سيدي ناجي']},
+  {c:'41',n:'سوق أهراس',del:800,communes:['سوق أهراس','مداوروش','تاورة','سدراتة','أم العدول','تيفاش','زعرورة','ويلان','الدريعة','خميسة','الحنانشة','بن عزيز']},
+  {c:'42',n:'تيبازة',del:650,communes:['تيبازة','شرشل','القليعة','بومردة','أفير','سيدي رحال','أولاد يلس','مسنتن','بواب','حجوط','لاربعاء','الناظور','مراد','نشلاي','مسيب','سيدي الغيلاني']},
+  {c:'43',n:'ميلة',del:750,communes:['ميلة','فرجيوة','الشيقارة','وادي العثمانية','الروساي','أميرة أرياس','أولاد هدة','سيدي خليفة','تسالة','بن يحيى عبد الرحمن','حمالة','الترعي','الأنصار','بوسيف','الطسة','التلاغمة']},
+  {c:'44',n:'عين الدفلى',del:700,communes:['عين الدفلى','الخميس مليانة','شابت','جنجن','مليانة','أولاد بن عبو','سيدي لكدر','بربر','روينة','بئر ولد خليفة','أبو الحسن','واد الشرفاء','العطاف','رواينة','عمورة','الماين','بن علال']},
+  {c:'45',n:'النعامة',del:850,communes:['النعامة','مشريا','عين الصفراء','المشير','أسلة','تيوت','عين بن خليل','الصفاء','قصب','دينة','طيوط','البيوض']},
+  {c:'46',n:'عين تموشنت',del:750,communes:['عين تموشنت','بني صاف','حمام بوحجر','أولاد كيحل','سيدي بن عدة','عقب الليل','العيون','مسرقة','تاشتة زيغة','الأربعاء']},
+  {c:'47',n:'غرداية',del:950,communes:['غرداية','متليلي','القرارة','بريان','بنورة','زلفانة','الأخضر','ضاية بن ضحوة','سبسب','منصورة','حاسي فحل','الشعيبة']},
+  {c:'48',n:'غليزان',del:750,communes:['غليزان','جديوية','واد رهيو','حمادنة','أولاد يعيش','الرمكة','سيدي خطاب','أولاد سيدي منصور','زمورة','عمي موسى','تغاليمت','عين الطرق','المدرور','السعيدية','خلف الله']},
+  {c:'51',n:'أولاد جلال',del:950,communes:['أولاد جلال','الدوسن','سيدي خالد','ليشانة','فوغالة','طولقة','عين الناقة']},
+  {c:'55',n:'تقرت',del:950,communes:['تقرت','تيمقاد','المقارين','العالية','تيبقصت','بن ناصر']},
+  {c:'57',n:'المغير',del:950,communes:['المغير','تندلة','سيدي عمران','المنصورة','العوينة','جامعة','أوقرتي']},
+  {c:'58',n:'المنيعة',del:950,communes:['المنيعة','بريزينة','القرارة','ضاية بن ضحوة','تيميمون']}
+];
+
+// ═══════════════════════════════════════════
+// STORAGE
+// ═══════════════════════════════════════════
+function save(){ localStorage.setItem('ams3', JSON.stringify(store)); }
+function load(){
+  const r = localStorage.getItem('ams3');
+  if(r){ try{ store = JSON.parse(r); }catch(e){} }
+}
+
+// ═══════════════════════════════════════════
+// SLIDER
+// ═══════════════════════════════════════════
+function buildSlider(images, emoji){
+  if(!images || images.length === 0){
+    return `<div class="slider-wrap">
+      <div class="slide" style="aspect-ratio:4/3"><span class="slide-emoji">${emoji||'📦'}</span></div>
+    </div>`;
+  }
+  const slides = images.map(src=>`
+    <div class="slide"><img src="${src}" loading="lazy"></div>
+  `).join('');
+  const thumbs = images.map((src,i)=>`
+    <div class="thumb${i===0?' active':''}" onclick="goSlide(${i})" id="thumb_${i}">
+      <img src="${src}">
+    </div>
+  `).join('');
+  const dots = images.map((_,i)=>`<div class="dot${i===0?' active':''}" onclick="goSlide(${i})" id="dot_${i}"></div>`).join('');
+  return `
+    <div class="slider-wrap">
+      <div class="slides" id="slidesTrack">${slides}</div>
+      ${images.length>1?`
+        <button class="slider-btn slider-prev" onclick="moveSlide(-1)">&#8250;</button>
+        <button class="slider-btn slider-next" onclick="moveSlide(1)">&#8249;</button>
+        <div class="slider-dots">${dots}</div>
+      `:''}
+    </div>
+    ${images.length>1?`<div class="thumb-row">${thumbs}</div>`:''}
+  `;
+}
+
+function goSlide(i){
+  const track = document.getElementById('slidesTrack');
+  if(!track) return;
+  const total = track.children.length;
+  slideIdx = (i + total) % total;
+  track.style.transform = `translateX(${slideIdx * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d,idx)=>d.classList.toggle('active', idx===slideIdx));
+  document.querySelectorAll('.thumb').forEach((t,idx)=>t.classList.toggle('active', idx===slideIdx));
+}
+
+function moveSlide(dir){
+  const track = document.getElementById('slidesTrack');
+  if(!track) return;
+  goSlide(slideIdx + dir);
+}
+
+// ═══════════════════════════════════════════
+// RENDER PRODUCT
+// ═══════════════════════════════════════════
+function renderProduct(){
+  const hero = document.getElementById('productHero');
+  if(!store.products.length){
+    hero.innerHTML=`<div style="text-align:center;padding:60px 0;color:var(--muted)"><div style="font-size:64px;margin-bottom:16px">🛍️</div><p style="font-size:16px;font-weight:600">لا توجد منتجات بعد</p></div>`;
+    updateSummary(null); return;
+  }
+  const p = store.products[0];
+  curProd = p;
+  selColor = p.colors&&p.colors.length ? p.colors[0] : null;
+  slideIdx = 0;
+
+  const feats = (p.feats||[]).slice(0,6);
+  const featEmojis = ['🚚','✅','⭐','🔒','💎','🎁'];
+
+  hero.innerHTML = `
+    <div class="product-hero">
+      <div class="product-images" style="position:relative">
+        ${buildSlider(p.images, p.emoji)}
+        ${p.badge?`<div class="badge-top">${p.badge}</div>`:''}
+      </div>
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="price-row">
+          <span class="price-main">${Number(p.price).toLocaleString('ar-DZ')} <span class="price-unit">دج</span></span>
+          ${p.oldPrice?`<span class="price-old">${Number(p.oldPrice).toLocaleString('ar-DZ')} دج</span>`:''}
+        </div>
+        ${p.desc?`<p class="product-desc">${p.desc}</p>`:''}
+        ${feats.length?`<div class="feats">${feats.map((f,i)=>`<div class="feat"><div class="feat-icon">${featEmojis[i%6]}</div><div class="feat-txt"><strong>${f}</strong></div></div>`).join('')}</div>`:''}
+        ${p.colors&&p.colors.length?`
+          <div class="sec-label">الألوان المتاحة</div>
+          <div class="colors-row">
+            ${p.colors.map((c,i)=>`<button class="cbtn${i===0?' active':''}" onclick="pickColor(${i})" id="cbtn${i}"><div class="cswatch" style="background:${c.hex}"></div>${c.name}</button>`).join('')}
+          </div>`:''}
+      </div>
+    </div>`;
+  updateSummary(p);
+}
+
+function pickColor(i){
+  selColor = curProd.colors[i];
+  document.querySelectorAll('.cbtn').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+  updateSummary(curProd);
+}
+
+function updateSummary(p){
+  const wrap = document.getElementById('orderSummary');
+  if(!wrap) return;
+  if(!p){ wrap.innerHTML=''; return; }
+  const wilayaName = document.getElementById('oWilaya').value;
+  const del = getDelivery(wilayaName);
+  const total = Number(p.price) + del;
+  wrap.innerHTML=`
+    <div class="sum-row"><span class="sum-label">المنتج</span><span style="font-weight:700">${p.name}${selColor?' — '+selColor.name:''}</span></div>
+    <div class="sum-row"><span class="sum-label">سعر المنتج</span><span>${Number(p.price).toLocaleString('ar-DZ')} دج</span></div>
+    <div class="sum-row"><span class="sum-label">سعر التوصيل</span><span>${del.toLocaleString('ar-DZ')} دج</span></div>
+    <div class="sum-row total"><span>الإجمالي</span><span>${total.toLocaleString('ar-DZ')} دج</span></div>
+  `;
+}
+
+function getDelivery(wilayaName){
+  if(!wilayaName) return 0;
+  const w = WILAYAS.find(x=>x.n===wilayaName);
+  return w ? w.del : 500;
+}
+
+// ═══════════════════════════════════════════
+// WILAYAS / COMMUNES
+// ═══════════════════════════════════════════
+function fillWilayas(){
+  const sel = document.getElementById('oWilaya');
+  sel.innerHTML='<option value="">اختر الولاية</option>';
+  WILAYAS.forEach(w=>{
+    const o=document.createElement('option');
+    o.value=w.n; o.textContent=w.c+' - '+w.n;
+    sel.appendChild(o);
+  });
+}
+
+function onWilayaChange(){
+  updateSummary(curProd);
+}
+
+// ═══════════════════════════════════════════
+// TELEGRAM — FIXED
+// ═══════════════════════════════════════════
+async function sendTelegram(text){
+  const token = store.settings.tgToken.trim();
+  const chatId = store.settings.tgChat.trim();
+  if(!token || !chatId) return {ok:false, error:'لم يتم إعداد بوت التيليقرام'};
+  try{
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+    const res = await fetch(url, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: chatId, text: text, parse_mode:'HTML' })
+    });
+    const data = await res.json();
+    return data;
+  }catch(e){
+    return {ok:false, error: e.message};
+  }
+}
+
+async function testTelegram(){
+  const btn = document.querySelector('[onclick="testTelegram()"]');
+  const result = document.getElementById('testResult');
+  btn.textContent='⏳ جاري الإرسال...';
+  btn.disabled=true;
+  const r = await sendTelegram('✅ اختبار ناجح من AM Store!\nالبوت يعمل بشكل صحيح 🎉');
+  btn.textContent='🧪 اختبار الإرسال للتيليقرام';
+  btn.disabled=false;
+  if(r.ok){
+    result.style.color='var(--green)'; result.textContent='✅ تم الإرسال بنجاح!';
+  } else {
+    result.style.color='var(--red)'; result.textContent='❌ فشل: '+(r.description||r.error||'تأكد من Token و Chat ID');
+  }
+}
+
+// ═══════════════════════════════════════════
+// SUBMIT ORDER
+// ═══════════════════════════════════════════
+async function submitOrder(){
+  if(!curProd){ alert('لا يوجد منتج'); return; }
+  const name = document.getElementById('oName').value.trim();
+  const phone = document.getElementById('oPhone').value.trim();
+  const wilaya = document.getElementById('oWilaya').value;
+  const commune = document.getElementById('oCommune').value;
+  if(!name||!phone||!wilaya||!commune){
+    alert('يرجى ملء جميع الحقول المطلوبة');
+    return;
+  }
+  const btn = document.getElementById('submitBtn');
+  btn.innerHTML='<div class="spinner"></div> جاري الإرسال...';
+  btn.disabled=true;
+
+  const del = getDelivery(wilaya);
+  const total = Number(curProd.price) + del;
+  const colorTxt = selColor ? selColor.name : 'غير محدد';
+
+  const order = {
+    id:'ORD-'+Date.now(),
+    date: new Date().toLocaleString('ar-DZ'),
+    product: curProd.name,
+    color: colorTxt,
+    price: curProd.price,
+    delivery: del, total,
+    name, phone, wilaya, commune
+  };
+  store.orders.unshift(order);
+  save();
+
+  const msg =
+`🛍️ <b>طلب جديد — AM Store</b>
+
+🆔 رقم الطلب: ${order.id}
+📦 المنتج: ${order.product}${order.color!=='غير محدد'?' | اللون: '+order.color:''}
+👤 الاسم: ${order.name}
+📞 الهاتف: ${order.phone}
+📍 الولاية: ${order.wilaya}
+🏘️ البلدية: ${order.commune}
+
+💰 سعر المنتج: ${Number(order.price).toLocaleString()} دج
+🚚 سعر التوصيل: ${Number(order.delivery).toLocaleString()} دج
+💵 <b>الإجمالي: ${Number(order.total).toLocaleString()} دج</b>
+
+🕐 ${order.date}`;
+
+  const tgResult = await sendTelegram(msg);
+  btn.innerHTML='📦 تأكيد الطلب';
+  btn.disabled=false;
+
+  document.getElementById('orderFormWrap').style.display='none';
+  document.getElementById('successWrap').style.display='block';
+}
+
+// ═══════════════════════════════════════════
+// ADMIN
+// ═══════════════════════════════════════════
+let loginClicks = 0;
+document.getElementById('logoClick').addEventListener('click',()=>{
+  loginClicks++;
+  setTimeout(()=>{ loginClicks=0; }, 800);
+  if(loginClicks>=3){ loginClicks=0; openLogin(); }
+});
+
+function openLogin(){
+  document.getElementById('loginPwd').value='';
+  document.getElementById('loginErr').style.display='none';
+  opn('ovLogin');
+}
+
+function doLogin(){
+  const pwd = document.getElementById('loginPwd').value;
+  if(pwd===(store.settings.password||'admin123')){
+    cls('ovLogin'); loadAdmin(); opn('ovAdmin');
+  } else {
+    document.getElementById('loginErr').style.display='block';
+  }
+}
+
+function loadAdmin(){
+  // Products list
+  const pl = document.getElementById('adminProdList');
+  pl.innerHTML = store.products.length
+    ? store.products.map(p=>`
+        <div class="prod-row">
+          <div class="prod-thumb">${p.images&&p.images[0]?`<img src="${p.images[0]}">`:(p.emoji||'📦')}</div>
+          <div class="prod-info"><div class="prod-n">${p.name}</div><div class="prod-p">${Number(p.price).toLocaleString()} دج</div></div>
+          <div class="prod-acts">
+            <button class="bs be" onclick="openEdit('${p.id}')">تعديل</button>
+            <button class="bs bd" onclick="delProd('${p.id}')">حذف</button>
+          </div>
+        </div>`).join('')
+    : '<div style="text-align:center;color:var(--muted);padding:40px;font-weight:600">لا توجد منتجات</div>';
+
+  // Orders
+  const ol = document.getElementById('adminOrderList');
+  ol.innerHTML = store.orders.length
+    ? store.orders.map(o=>`
+        <div class="order-card">
+          <div class="oc-hdr">
+            <span class="oc-id">${o.id}</span>
+            <span class="badge-new">جديد</span>
+            <span class="oc-date">${o.date}</span>
+          </div>
+          <div class="oc-body">
+            📦 ${o.product}${o.color&&o.color!=='غير محدد'?' | '+o.color:''}<br>
+            👤 ${o.name} &nbsp;|&nbsp; 📞 ${o.phone}<br>
+            📍 ${o.wilaya} — ${o.commune}<br>
+            💵 الإجمالي: <strong style="color:var(--p)">${Number(o.total).toLocaleString()} دج</strong>
+          </div>
+        </div>`).join('')
+    : '<div style="text-align:center;color:var(--muted);padding:40px;font-weight:600">لا توجد طلبات</div>';
+
+  // Settings
+  document.getElementById('sTgToken').value = store.settings.tgToken||'';
+  document.getElementById('sTgChat').value = store.settings.tgChat||'';
+
+  // Image slots
+  buildImgSlots();
+}
+
+// ═══ IMAGE SLOTS ═══
+let productImages = [null,null,null,null,null]; // up to 5
+
+function buildImgSlots(){
+  productImages = [null,null,null,null,null];
+  const grid = document.getElementById('imgsGrid');
+  grid.innerHTML = productImages.map((_,i)=>`
+    <div class="img-slot" id="slot_${i}" onclick="document.getElementById('imgInput_${i}').click()">
+      <span>📷</span>
+      <input type="file" id="imgInput_${i}" accept="image/*" onchange="slotChange(this,${i})">
+      <button class="del-img" onclick="clearSlot(event,${i})">✕</button>
+    </div>`).join('');
+}
+
+function slotChange(inp, i){
+  const f = inp.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = e=>{
+    productImages[i] = e.target.result;
+    const slot = document.getElementById('slot_'+i);
+    let img = slot.querySelector('img');
+    if(!img){ img=document.createElement('img'); slot.appendChild(img); }
+    img.src = e.target.result;
+    slot.querySelector('span').style.display='none';
+  };
+  r.readAsDataURL(f);
+}
+
+function clearSlot(ev, i){
+  ev.stopPropagation();
+  productImages[i] = null;
+  const slot = document.getElementById('slot_'+i);
+  const img = slot.querySelector('img');
+  if(img) img.remove();
+  slot.querySelector('span').style.display='';
+  document.getElementById('imgInput_'+i).value='';
+}
+
+function addColorRow(){
+  const c = document.getElementById('colorIn');
+  const row = document.createElement('div'); row.className='ci-row';
+  row.innerHTML=`<input type="color" class="cpick" value="#a855f7"><input class="form-control" placeholder="اسم اللون" style="flex:1"><button class="bico" onclick="this.parentElement.remove()">−</button>`;
+  c.appendChild(row);
+}
+
+function getColors(){
+  return Array.from(document.querySelectorAll('#colorIn .ci-row')).map(r=>({
+    hex: r.querySelector('.cpick').value,
+    name: r.querySelector('.form-control').value.trim()||'لون'
+  })).filter(c=>c.name);
+}
+
+function saveProduct(){
+  const name = document.getElementById('aName').value.trim();
+  const price = document.getElementById('aPrice').value;
+  if(!name||!price){ alert('اسم المنتج والسعر مطلوبان'); return; }
+  const featsRaw = document.getElementById('aFeats').value.trim();
+  const imgs = productImages.filter(Boolean);
+  const p = {
+    id:'P'+Date.now(), name,
+    desc: document.getElementById('aDesc').value.trim(),
+    price: Number(price),
+    oldPrice: Number(document.getElementById('aOldPrice').value)||0,
+    emoji: document.getElementById('aEmoji').value||'📦',
+    badge: document.getElementById('aBadge').value.trim(),
+    feats: featsRaw ? featsRaw.split('\n').map(s=>s.trim()).filter(Boolean) : [],
+    colors: getColors(),
+    images: imgs
+  };
+  store.products.unshift(p); save(); renderProduct(); loadAdmin();
+  ['aName','aDesc','aPrice','aOldPrice','aEmoji','aBadge','aFeats'].forEach(id=>document.getElementById(id).value='');
+  buildImgSlots();
+  document.getElementById('colorIn').innerHTML=`<div class="ci-row"><input type="color" class="cpick" value="#7c3aed"><input class="form-control" placeholder="اسم اللون" style="flex:1"><button class="bico" onclick="addColorRow()">+</button></div>`;
+  alert('✅ تم إضافة المنتج!');
+  switchTab('tProd', document.querySelector('.tab'));
+}
+
+function delProd(id){
+  if(!confirm('حذف هذا المنتج؟')) return;
+  store.products = store.products.filter(p=>p.id!==id);
+  save(); renderProduct(); loadAdmin();
+}
+
+function openEdit(id){
+  editId = id;
+  const p = store.products.find(x=>x.id===id);
+  document.getElementById('eName').value = p.name;
+  document.getElementById('eDesc').value = p.desc||'';
+  document.getElementById('ePrice').value = p.price;
+  document.getElementById('eOldPrice').value = p.oldPrice||'';
+  document.getElementById('eEmoji').value = p.emoji||'';
+  document.getElementById('eBadge').value = p.badge||'';
+  document.getElementById('eFeats').value = (p.feats||[]).join('\n');
+  opn('ovEdit');
+}
+
+function updateProd(){
+  const p = store.products.find(x=>x.id===editId); if(!p) return;
+  p.name = document.getElementById('eName').value.trim();
+  p.desc = document.getElementById('eDesc').value.trim();
+  p.price = Number(document.getElementById('ePrice').value);
+  p.oldPrice = Number(document.getElementById('eOldPrice').value)||0;
+  p.emoji = document.getElementById('eEmoji').value;
+  p.badge = document.getElementById('eBadge').value.trim();
+  const fr = document.getElementById('eFeats').value.trim();
+  p.feats = fr ? fr.split('\n').map(s=>s.trim()).filter(Boolean) : [];
+  save(); renderProduct(); loadAdmin(); cls('ovEdit');
+}
+
+function saveSett(){
+  store.settings.tgToken = document.getElementById('sTgToken').value.trim();
+  store.settings.tgChat = document.getElementById('sTgChat').value.trim();
+  const np = document.getElementById('sNewPwd').value;
+  if(np) store.settings.password = np;
+  save();
+  const m = document.getElementById('settSaved'); m.style.display='block';
+  setTimeout(()=>m.style.display='none', 2500);
+}
+
+function switchTab(id, btn){
+  document.querySelectorAll('.tcontent').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+// ═══════════════════════════════════════════
+// OVERLAY HELPERS
+// ═══════════════════════════════════════════
+function opn(id){ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function cls(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.querySelectorAll('.overlay').forEach(o=>{
+  o.addEventListener('click', e=>{ if(e.target===o) cls(o.id); });
+});
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+document.addEventListener('DOMContentLoaded',()=>{
+  load(); fillWilayas(); renderProduct();
+});
+</script>
+</body>
+</html>
